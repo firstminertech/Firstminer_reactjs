@@ -15,10 +15,13 @@ import { Form, Button, Alert, Row, Col, Modal } from "react-bootstrap";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Loader from "../elements/loader";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const HomePage = observer(() => {
   useEffect(() => {
     websiteStore?.getTeams();
+    AOS.init({ duration: 1000, once: true });
   }, []);
   const [isSuccess, setIsSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -92,7 +95,7 @@ const HomePage = observer(() => {
       </style>
       {loader ? <Loader /> : <div><Header />
 
-        <section id="intro">
+        <section id="intro" data-aos="fade-up">
           {/* Background Video */}
           <div className="container">
             <video autoPlay muted loop id="intro-video">
@@ -109,7 +112,7 @@ const HomePage = observer(() => {
         {/* #intro */}
 
         <main id="main">
-          <section id="about" className="wow fadeInUp">
+          <section id="about" className="wow fadeInUp" data-aos="fade-up">
             <div className="container">
               <div className="row">
                 {/* Animated Image */}
@@ -166,9 +169,9 @@ const HomePage = observer(() => {
           </section>
           {/* #about */}
 
-          <section id="services">
+          <section id="services" data-aos="fade-up">
             <div className="container">
-              <div className="section-header">
+              <div className="section-header" data-aos="fade-up">
                 <h2>Services</h2>
 
                 <p className="servies-para">
@@ -180,7 +183,7 @@ const HomePage = observer(() => {
                 </p>
               </div>
               <div className="row">
-                <div className="col-lg-6">
+                <div className="col-lg-6" data-aos="zoom-in">
                   <div className="box wow fadeInLeft">
                     <div className="icon">
                       {/* <i className="fa fa-bar-chart" /> */}
@@ -197,7 +200,7 @@ const HomePage = observer(() => {
                   </div>
                 </div>
 
-                <div className="col-lg-6">
+                <div className="col-lg-6" data-aos="zoom-in">
                   <div className="box wow fadeInLeft" data-wow-delay="0.2s">
                     <div className="icon">
                       <img src="assets/img/appdevelopment.webp"></img>
@@ -213,7 +216,7 @@ const HomePage = observer(() => {
                     </p>
                   </div>
                 </div>
-                <div className="col-lg-6">
+                <div className="col-lg-6" data-aos="zoom-in">
                   <div className="box wow fadeInLeft" data-wow-delay="0.2s">
                     <div className="icon">
                       <img src="assets/img/web.jpg"></img>
@@ -231,7 +234,7 @@ const HomePage = observer(() => {
                   </div>
                 </div>
 
-                <div className="col-lg-6">
+                <div className="col-lg-6" data-aos="zoom-in">
                   <div className="box wow fadeInLeft" data-wow-delay="0.2s">
                     <div className="icon">
                       <img src="assets/img/project.webp"></img>
@@ -247,7 +250,7 @@ const HomePage = observer(() => {
                     </p>
                   </div>
                 </div>
-                <div className="col-lg-6">
+                <div className="col-lg-6" data-aos="zoom-in">
                   <div className="box wow fadeInLeft" data-wow-delay="0.2s">
                     <div className="icon">
                       <img src="assets/img/govt.webp"></img>
@@ -262,7 +265,7 @@ const HomePage = observer(() => {
                     </p>
                   </div>
                 </div>
-                <div className="col-lg-6">
+                <div className="col-lg-6" data-aos="zoom-in">
                   <div className="box wow fadeInLeft" data-wow-delay="0.2s">
                     <div className="icon">
                       <img src="assets/img/v.jpg"></img>
@@ -276,7 +279,7 @@ const HomePage = observer(() => {
                   </div>
                 </div>
 
-                <div className="col-lg-6">
+                <div className="col-lg-6" data-aos="zoom-in">
                   <div className="box wow fadeInLeft" data-wow-delay="0.2s">
                     <div className="icon">
                       <img src="assets/img/blockchain.webp"></img>
@@ -292,7 +295,7 @@ const HomePage = observer(() => {
                     </p>
                   </div>
                 </div>
-                <div className="col-lg-6">
+                <div className="col-lg-6" data-aos="zoom-in">
                   <div className="box wow fadeInLeft" data-wow-delay="0.2s">
                     <div className="icon">
                       <img src="assets/img/social1.png" width={50}/>
@@ -329,12 +332,12 @@ const HomePage = observer(() => {
             <p className="client-para">
               At FirstMinerTech, we leverage cutting-edge technologies to deliver high-quality, scalable,
               and efficient solutions. Our technology stack is carefully chosen to meet the diverse needs of modern
-              businesses and ensure robust performance. Here’s what powers our innovation:
+              businesses and ensure robust performance. Here's what powers our innovation:
             </p>
           </div>
           <div className="container">
             <div className="d-flex justify-content-around flex-wrap mt-4">
-              <div className="card-container d-flex justify-content-center">
+              <div className="card-container d-flex justify-content-center" data-aos="zoom-in">
                 <div className="card-technology shadow">
                   <img
                     src="assets/img/mern.jpg"
@@ -344,7 +347,7 @@ const HomePage = observer(() => {
 
                 </div>
               </div>
-              <div className="card-container">
+              <div className="card-container" data-aos="zoom-in">
                 <div className="card-technology shadow">
                   <img
                     src="assets/img/django.png"
@@ -354,7 +357,7 @@ const HomePage = observer(() => {
 
                 </div>
               </div>
-              <div className="card-container">
+              <div className="card-container" data-aos="zoom-in">
                 <div className="card-technology shadow">
                   <img
                     src="assets/img/react.jpg"
@@ -364,7 +367,7 @@ const HomePage = observer(() => {
 
                 </div>
               </div>
-              <div className="card-container">
+              <div className="card-container" data-aos="zoom-in">
                 <div className="card-technology shadow">
                   <img
                     src="assets/img/Flutter.jpg"
@@ -376,7 +379,7 @@ const HomePage = observer(() => {
               </div>
             </div>
             <div className="d-flex justify-content-around flex-wrap mt-4">
-              <div className="card-container">
+              <div className="card-container" data-aos="zoom-in">
                 <div className="card-technology shadow">
                   <img
                     src="assets/img/code.png"
@@ -386,7 +389,7 @@ const HomePage = observer(() => {
 
                 </div>
               </div>
-              <div className="card-container">
+              <div className="card-container" data-aos="zoom-in">
                 <div className="card-technology shadow">
                   <img
                     src="assets/img/ios.png"
@@ -396,7 +399,7 @@ const HomePage = observer(() => {
 
                 </div>
               </div>
-              <div className="card-container">
+              <div className="card-container" data-aos="zoom-in">
 
                 <div className="card-technology shadow">
                   <img
@@ -407,7 +410,7 @@ const HomePage = observer(() => {
 
                 </div>
               </div>
-              <div className="card-container">
+              <div className="card-container" data-aos="zoom-in">
                 <div className="card-technology shadow">
                   <img
                     src="assets/img/net.png"
@@ -420,7 +423,7 @@ const HomePage = observer(() => {
 
             </div>
             <div className="d-flex justify-content-around flex-wrap mt-4">
-              <div className="card-container d-flex justify-content-center">
+              <div className="card-container d-flex justify-content-center" data-aos="zoom-in">
                 <div className="card-technology shadow">
                   <img
                     src="assets/img/android.png"
@@ -430,7 +433,7 @@ const HomePage = observer(() => {
 
                 </div>
               </div>
-              <div className="card-container">
+              <div className="card-container" data-aos="zoom-in">
                 <div className="card-technology shadow">
                   <img
                     src="assets/img/java.png"
@@ -440,7 +443,7 @@ const HomePage = observer(() => {
 
                 </div>
               </div>
-              <div className="card-container">
+              <div className="card-container" data-aos="zoom-in">
                 <div className="card-technology shadow">
                   <img
                     src="assets/img/next.png"
@@ -450,7 +453,7 @@ const HomePage = observer(() => {
 
                 </div>
               </div>
-              <div className="card-container">
+              <div className="card-container" data-aos="zoom-in">
                 <div className="card-technology shadow">
                   <img
                     src="assets/img/Laravel.png"
@@ -465,7 +468,7 @@ const HomePage = observer(() => {
           </div>
 
 
-          <div className="container py-5">
+          <div className="container py-5" data-aos="fade-up">
             <div className="row justify-content-center text-center">
               <div className="col-12">
                 <h2 className="client-title mt-4">Why to Choose US</h2>
@@ -477,7 +480,7 @@ const HomePage = observer(() => {
 
             <div className="row align-items-center mt-4">
               {/* Side Image */}
-              <div className="col-12 col-md-5 text-center mb-4 mb-md-0">
+              <div className="col-12 col-md-5 text-center mb-4 mb-md-0" data-aos="zoom-in">
                 <img
                   src="assets/img/chooseus1.jpg"
                   alt="Professional"
@@ -488,7 +491,7 @@ const HomePage = observer(() => {
               {/* Features Section */}
               <div className="col-12 col-md-7">
                 <div className="row">
-                  <div className="col-12 col-md-6 mb-4">
+                  <div className="col-12 col-md-6 mb-4" data-aos="zoom-in">
                     <div className="feature-card" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                       <img
                         src="assets/img/checkbox.png"
@@ -502,7 +505,7 @@ const HomePage = observer(() => {
                     </div>
                   </div>
 
-                  <div className="col-12 col-md-6 mb-4">
+                  <div className="col-12 col-md-6 mb-4" data-aos="zoom-in">
                     <div className="feature-card" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                       <img
                         src="assets/img/checkbox.png"
@@ -516,7 +519,7 @@ const HomePage = observer(() => {
                     </div>
                   </div>
 
-                  <div className="col-12 col-md-6 mb-4">
+                  <div className="col-12 col-md-6 mb-4" data-aos="zoom-in">
 
                     <div className="feature-card" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                       <img
@@ -531,7 +534,7 @@ const HomePage = observer(() => {
                     </div>
                   </div>
 
-                  <div className="col-12 col-md-6 mb-4">
+                  <div className="col-12 col-md-6 mb-4" data-aos="zoom-in">
                     <div className="feature-card" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                       <img
                         src="assets/img/checkbox.png"
@@ -551,7 +554,7 @@ const HomePage = observer(() => {
             {/* Contact Information */}
 
           </div>
-          <section id="call-to-action" className="call-to-action-section">
+          <section id="call-to-action" className="call-to-action-section" data-aos="fade-up">
             <div className="container">
               <div className="row align-items-center">
                 <div className="col-lg-9 text-center text-lg-left">
@@ -794,7 +797,7 @@ const HomePage = observer(() => {
                        user experiences. With a passion for both Android and
                        iOS development, she focuses on crafting intuitive and
                        high-performing apps that cater to diverse user needs.
-                       Sakshi’s attention to detail and commitment to improving
+                       Sakshi's attention to detail and commitment to improving
                        app functionality make her a reliable contributor in the
                        tech world.
                      </p>

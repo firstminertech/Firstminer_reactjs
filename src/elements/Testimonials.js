@@ -63,7 +63,7 @@ const Testimonials = () => {
                   onMouseOver={(e) => e.target.style.transform = 'scale(1.1)'}
                   onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
                 />
-                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: "#333" }}>Aarav</h3>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: "#333" }}>Akash Rathore</h3>
                 {/* <h4 style={{ fontSize: '1.1rem', color: '#777', fontWeight: '500' }}>CEO & Founder</h4> */}
 
                 <div
@@ -132,7 +132,7 @@ const Testimonials = () => {
                   onMouseOver={(e) => e.target.style.transform = 'scale(1.1)'}
                   onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
                 />
-                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: "#333" }}>Vivaan</h3>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: "#333" }}>Swapnil lanjewar</h3>
                 {/* <h4 style={{ fontSize: '1.1rem', color: '#777', fontWeight: '500' }}>CEO & Founder</h4> */}
 
                 <div
@@ -187,7 +187,7 @@ const Testimonials = () => {
                 />
 
                 {/* <img src="assets/img/quote-sign-left.png" className="quote-sign-left" alt="" /> */}
-                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: "#333" }}>Riyaan</h3>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: "#333" }}>Ashish Dewedi </h3>
                 {/* <img src="assets/img/quote-sign-right.png" className="quote-sign-right" alt="" /> */}
                 {/* <h4 style={{ fontSize: '1.1rem', color: '#777', fontWeight: '500' }}>Software Developer</h4> */}
 

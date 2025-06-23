@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.card:hover, .card-technology:hover, .feature-card:hover, .box:hover,
+.testimonial-item:hover, .team-member:hover, .client-card:hover, .portfolio-item:hover, .card-container:hover, .benefit-card:hover, .service-card:hover, .job-card:hover, .client-card11:hover {
+  box-shadow: 0 8px 24px 0 rgba(0, 102, 255, 0.5), 0 1.5px 6px 0 rgba(0, 102, 255, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.testimonial-item:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 24px 0 rgba(0, 102, 255, 0.5), 0 1.5px 6px 0 rgba(0, 102, 255, 0.3);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
