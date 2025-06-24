@@ -30,33 +30,27 @@ const OurTeams = () => {
         },
         {
             name: "Anik Ranjan",
-            role: "Software Developer",
+            role: "Frontend Developer",
             description: "A versatile full-stack developer, adept at designing, building, and maintaining scalable, user-centric web applications.",
             image: "assets/img/boy1.png",
             
         },
         {
             name: "Sudhanshu Kanwar",
-            role: "Software Developer (Team Leader)",
+            role: "Fullstack Developer",
             description: "A versatile full-stack developer, adept at designing, building, and maintaining scalable, user-centric web applications.",
             image: "assets/img/boy1.png",
             
         },
         {
             name: "Dharmesh Darshan",
-            role: "Software Developer",
+            role: "Backend Developer",
             description: "A versatile full-stack developer, adept at designing, building, and maintaining scalable, user-centric web applications.",
             image: "assets/img/boy1.png",
             
         },
         
-        {
-            name: "Shivam Gupta",
-            role: "Software Developer",
-            description: "A creative frontend developer, specializing in crafting responsive, intuitive, and visually appealing user interfaces.",
-            image: "assets/img/boy1.png",
-            
-        },
+        
         {
             name: "Sakshi Rathore",
             role: "App Developer",
@@ -66,7 +60,7 @@ const OurTeams = () => {
         },
         {
             name: "Pallavi Rathore",
-            role: "Tester & Frontend Developer",
+            role: "Full Stack developer",
             description: "A creative frontend developer, specializing in crafting responsive, intuitive, and visually appealing user interfaces.",
             image: "assets/img/girl1.png",
             
@@ -83,6 +77,13 @@ const OurTeams = () => {
             role: "Designer",
             description: "A talented graphic designer, skilled in creating visually compelling designs that communicate messages effectively and creatively.",
             image: "assets/img/boy1.png",
+            
+        },
+         {
+            name: "Riya Singh",
+            role: "Junior Developer",
+            description: "A passionate frontend developer with expertise in building adaptive, user-friendly, and aesthetically engaging interfaces..",
+            image: "assets/img/girl1.png",
             
         },
        

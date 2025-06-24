@@ -1,345 +1,153 @@
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import React, { useState } from 'react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
+
+const testimonials = [
+  {
+    img: 'assets/img/1833.jpg',
+    name: 'Akash Rathore',
+    text: 'Partnering with FirstMinerTech was the best decision for our business. Their tailored approach and attention to detail made all the difference. We felt supported throughout the entire process, and the results speak for themselves.'
+  },
+  {
+    img: 'assets/img/224.jpg',
+    name: 'Swapnil lanjewar',
+    text: 'Vivaan, a valued client of Firstminer Tech, entrusted us with the development of his app and website. By understanding his vision and incorporating innovative solutions, we delivered a project that reflects both functionality and design excellence. Harish\'s collaboration highlights our ability to bring ideas to life with precision and dedication.'
+  },
+  {
+    img: 'assets/img/1834.jpg',
+    name: 'Ashish Dewedi',
+    text: 'Partnered with Firstminer Tech for app and website development to bring his innovative ideas to reality. Through our detailed approach and expert execution, we delivered a solution tailored to his specific needs. Working with Anik was a rewarding experience, showcasing our dedication to quality and client satisfaction.'
+  },
+  {
+    img: 'assets/img/1831.jpg',
+    name: 'Kavya',
+    text: 'The FirstMinerTech team truly understands the tech industry. Their solutions were cutting-edge, and their customer service was outstanding. We are excited to work with them again on future projects.'
+  },
+  {
+    img: 'assets/img/1832.jpg',
+    name: 'Divya',
+    text: 'FirstMinerTech turned our vision into reality. Their team was responsive, innovative, and delivered on every promise. We\'re grateful for their partnership and expertise in bringing our project to life.'
+  }
+];
 
 const Testimonials = () => {
-  return (
-    <section id="testimonials" className="wow fadeInUp" >
+  const [activeIndex, setActiveIndex] = useState(0);
 
-      {/* <div className='row'> */}
-      {/* <div className=' col-3'>
-           <p>hello</p>
-          </div> */}
+  return (
+    <section id="testimonials" className="wow fadeInUp">
       <div className="col-12">
         <div className='flex-container'>
-
-          {/* Swiper Component */}
           <Swiper
             modules={[Pagination, Autoplay, Navigation]}
-            spaceBetween={30}
-            loop={true}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-            }}
+            grabCursor={true}
             pagination={{ clickable: true }}
-            navigation={{
-              prevEl: '#swiper-prev',
-              nextEl: '#swiper-next',
-            }}
+            autoplay={{ delay: 1800, disableOnInteraction: false, pauseOnMouseEnter: false }}
+            speed={900}
             slidesPerView={3}
-            speed={800}
-            style={{ paddingBottom: '40px' }}
+            centeredSlides={true}
+            spaceBetween={30}
+            onSlideChange={swiper => setActiveIndex(swiper.realIndex)}
+            onSwiper={swiper => setActiveIndex(swiper.realIndex)}
+            style={{ maxWidth: '900px', margin: '0 auto' }}
             breakpoints={{
-              1024: {
-                slidesPerView: 3,
-              },
-              768: {
-                slidesPerView: 2,
-              },
-              20: {
-                slidesPerView: 1,
-              },
+              0: { slidesPerView: 1 },
+              600: { slidesPerView: 2 },
+              900: { slidesPerView: 3 }
             }}
           >
-
-
-            {/* First Slide */}
-            <SwiperSlide>
-
-              <div className="testimonial-item text-center mb-4" style={{
-                borderRadius: "15px",
-                padding: "30px",
-                boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-                backgroundColor: "#fff",
-                height: "450px",
-
-              }}>
-
-                <img
-                  src="assets/img/1833.jpg"
-                  className="testimonial-img rounded-circle mb-3"
-                  alt=""
-                  style={{ border: "4px solid #fff", boxShadow: "0 4px 10px rgba(0,0,0,0.2)", transition: "transform 0.3s ease" }}
-                  onMouseOver={(e) => e.target.style.transform = 'scale(1.1)'}
-                  onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
-                />
-                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: "#333" }}>Akash Rathore</h3>
-                {/* <h4 style={{ fontSize: '1.1rem', color: '#777', fontWeight: '500' }}>CEO & Founder</h4> */}
-
+            {testimonials.map((t, idx) => (
+              <SwiperSlide key={idx}>
                 <div
-                  className="scrollable-text-container"
-                  style={{
-                    maxHeight: "150px",
-                    overflow: "auto",
-                    scrollbarWidth: "none", // For Firefox
-                    msOverflowStyle: "none" // For IE and Edge
-                  }}
+                  className={`testimonial-item-carousel${activeIndex === idx ? ' active' : ''}${Math.abs(activeIndex - idx) === 1 ? ' semi-active' : ''}`}
                 >
-                  <style>
-                    {`
-      .scrollable-text-container::-webkit-scrollbar {
-        display: none; /* Hides scrollbar for Webkit browsers */
-      }
-    `}
-                  </style>
-
-                  <p style={{
-                    fontStyle: "italic",
-                    color: "#555",
-                    fontSize: "1.1rem",
-                    margin: 0 // Remove extra margins for better fit
-                  }}>
-                    {/* <img src="assets/img/quote-sign-left.png" className="quote-sign-left" alt="" /> */}
-                    "Partnering with FirstMinerTech was the best decision for our business. Their tailored approach and attention to detail made all the difference. We felt supported throughout the entire process, and the results speak for themselves."
-                    {/* <img src="assets/img/quote-sign-right.png" className="quote-sign-right" alt="" /> */}
-                  </p>
+                  <img
+                    src={t.img}
+                    className="testimonial-img rounded-circle mb-3"
+                    alt=""
+                  />
+                  <h3>{t.name}</h3>
+                  <div className="scrollable-text-container">
+                    <p>{t.text}</p>
+                  </div>
                 </div>
-
-
-              </div>
-            </SwiperSlide>
-
-            {/* Second Slide */}
-            <SwiperSlide>
-              <div
-                className="testimonial-item text-center mb-4"
-                style={{
-                  borderRadius: "15px",
-                  padding: "30px",
-                  boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-                  backgroundColor: "#fff",
-                  height: "450px",
-
-                }}
-              >
-                <style>
-                  {`
-      .testimonial-item::-webkit-scrollbar {
-        display: none; /* Hides scrollbar for Webkit browsers */
-      }
-    `}
-                </style>
-
-                <img
-                  src="assets/img/224.jpg"
-                  className="testimonial-img rounded-circle mb-3"
-                  alt=""
-                  style={{
-                    border: "4px solid #fff",
-                    boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
-                    transition: "transform 0.3s ease"
-                  }}
-                  onMouseOver={(e) => e.target.style.transform = 'scale(1.1)'}
-                  onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
-                />
-                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: "#333" }}>Swapnil lanjewar</h3>
-                {/* <h4 style={{ fontSize: '1.1rem', color: '#777', fontWeight: '500' }}>CEO & Founder</h4> */}
-
-                <div
-                  className="scrollable-text-container"
-                  style={{
-                    maxHeight: "150px",
-                    overflow: "auto",
-                    scrollbarWidth: "none", // For Firefox
-                    msOverflowStyle: "none" // For IE and Edge
-                  }}
-                >
-                  <style>
-                    {`
-      .scrollable-text-container::-webkit-scrollbar {
-        display: none; /* Hides scrollbar for Webkit browsers */
-      }
-    `}
-                  </style>
-
-                  <p style={{
-                    fontStyle: "italic",
-                    color: "#555",
-                    fontSize: "1.1rem",
-                    margin: 0 // Remove extra margins for better fit
-                  }}>
-                    Vivaan, a valued client of Firstminer Tech, entrusted us with the development of his app and website. By understanding his vision and incorporating innovative solutions, we delivered a project that reflects both functionality and design excellence. Harish's collaboration highlights our ability to bring ideas to life with precision and dedication."
-                  </p>
-                </div>
-
-              </div>
-
-
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <div className="testimonial-item text-center mb-4" style={{
-                borderRadius: "15px",
-                padding: "30px",
-                boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-                backgroundColor: "#fff",
-                height: "450px",
-
-              }}>
-
-                <img
-                  src="assets/img/1834.jpg"
-                  className="testimonial-img rounded-circle mb-3"
-                  alt=""
-                  style={{ border: "4px solid #fff", boxShadow: "0 4px 10px rgba(0,0,0,0.2)", transition: "transform 0.3s ease" }}
-                  onMouseOver={(e) => e.target.style.transform = 'scale(1.1)'}
-                  onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
-                />
-
-                {/* <img src="assets/img/quote-sign-left.png" className="quote-sign-left" alt="" /> */}
-                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: "#333" }}>Ashish Dewedi </h3>
-                {/* <img src="assets/img/quote-sign-right.png" className="quote-sign-right" alt="" /> */}
-                {/* <h4 style={{ fontSize: '1.1rem', color: '#777', fontWeight: '500' }}>Software Developer</h4> */}
-
-                <div
-                  className="scrollable-text-container"
-                  style={{
-                    maxHeight: "150px",
-                    overflow: "auto",
-                    scrollbarWidth: "none", // For Firefox
-                    msOverflowStyle: "none" // For IE and Edge
-                  }}
-                >
-                  <style>
-                    {`
-      .scrollable-text-container::-webkit-scrollbar {
-        display: none; /* Hides scrollbar for Webkit browsers */
-      }
-    `}
-                  </style>
-
-                  <p style={{
-                    fontStyle: "italic",
-                    color: "#555",
-                    fontSize: "1.1rem",
-                    margin: 0 // Remove extra margins for better fit
-                  }}>
-                    partnered with Firstminer Tech for app and website development to bring his innovative ideas to reality. Through our detailed approach and expert execution, we delivered a solution tailored to his specific needs. Working with Anik was a rewarding experience, showcasing our dedication to quality and client satisfaction."
-
-                  </p>
-                </div>
-
-
-
-              </div>
-            </SwiperSlide>
-
-
-            <SwiperSlide>
-              <div
-                className="testimonial-item text-center mb-4"
-                style={{
-                  borderRadius: "15px",
-                  padding: "30px",
-                  boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-                  backgroundColor: "#fff",
-                  height: "450px",
-
-                }}
-              >
-                <img
-                  src="assets/img/1831.jpg"
-                  className="testimonial-img rounded-circle mb-3"
-                  alt=""
-                  style={{ border: "4px solid #fff", boxShadow: "0 4px 10px rgba(0,0,0,0.2)", transition: "transform 0.3s ease" }}
-                  onMouseOver={(e) => e.target.style.transform = 'scale(1.1)'}
-                  onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
-                />
-                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: "#333" }}>Kavya</h3>
-                {/* <h4 style={{ fontSize: '1.1rem', color: '#777', fontWeight: '500' }}>Software Developer</h4> */}
-
-                <div
-                  className="scrollable-text-container"
-                  style={{
-                    maxHeight: "150px",
-                    overflow: "auto",
-                    scrollbarWidth: "none", // For Firefox
-                    msOverflowStyle: "none" // For IE and Edge
-                  }}
-                >
-                  <style>
-                    {`
-      .scrollable-text-container::-webkit-scrollbar {
-        display: none; /* Hides scrollbar for Webkit browsers */
-      }
-    `}
-                  </style>
-
-                  <p style={{
-                    fontStyle: "italic",
-                    color: "#555",
-                    fontSize: "1.1rem",
-                    margin: 0 // Remove extra margins for better fit
-                  }}>
-                    "The FirstMinerTech team truly understands the tech industry. Their solutions were cutting-edge, and their customer service was outstanding. We are excited to work with them again on future projects."
-                  </p>
-                </div>
-
-
-
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div
-                className="testimonial-item text-center mb-4"
-                style={{
-                  borderRadius: "15px",
-                  padding: "30px",
-                  boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-                  backgroundColor: "#fff",
-                  height: "450px",
-
-                }}
-              >
-                <img
-                  src="assets/img/1832.jpg"
-                  className="testimonial-img rounded-circle mb-3"
-                  alt=""
-                  style={{ border: "4px solid #fff", boxShadow: "0 4px 10px rgba(0,0,0,0.2)", transition: "transform 0.3s ease" }}
-                  onMouseOver={(e) => e.target.style.transform = 'scale(1.1)'}
-                  onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
-                />
-                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: "#333" }}>Divya</h3>
-                {/* <h4 style={{ fontSize: '1.1rem', color: '#777', fontWeight: '500' }}>Software Developer</h4> */}
-
-                <div
-                  className="scrollable-text-container"
-                  style={{
-                    maxHeight: "150px",
-                    overflow: "auto",
-                    scrollbarWidth: "none", // For Firefox
-                    msOverflowStyle: "none" // For IE and Edge
-                  }}
-                >
-                  <style>
-                    {`
-      .scrollable-text-container::-webkit-scrollbar {
-        display: none; /* Hides scrollbar for Webkit browsers */
-      }
-    `}
-                  </style>
-
-                  <p style={{
-                    fontStyle: "italic",
-                    color: "#555",
-                    fontSize: "1.1rem",
-                    margin: 0 // Remove extra margins for better fit
-                  }}>
-                    "FirstMinerTech turned our vision into reality. Their team was responsive, innovative, and delivered on every promise. We’re grateful for their partnership and expertise in bringing our project to life."
-                  </p>
-                </div>
-
-
-              </div>
-            </SwiperSlide>
-
-
+              </SwiperSlide>
+            ))}
           </Swiper>
-
         </div>
-        {/* </div> */}
-
       </div>
+      <style>{`
+        .testimonial-item-carousel {
+          background: #fff;
+          border-radius: 15px;
+          padding: 30px;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+          height: 450px;
+          text-align: center;
+          transition: transform 0.5s cubic-bezier(.4,2,.6,1), box-shadow 0.5s, background 0.5s, color 0.5s;
+          opacity: 0.6;
+          filter: blur(1px) grayscale(0.2);
+          transform: scale(0.92);
+          color: #333;
+        }
+        .testimonial-item-carousel.semi-active {
+          background: #e3f0ff;
+          opacity: 0.85;
+          filter: blur(0.5px) grayscale(0.1);
+          transform: scale(0.98);
+          color: #333;
+        }
+        .testimonial-item-carousel.active {
+          background: linear-gradient(135deg,rgb(66, 143, 191) 0%,rgb(64, 144, 202) 100%);
+          color: #fff;
+          box-shadow: 0 8px 32px rgba(106,17,203,0.18), 0 2px 8px rgba(158, 90, 213, 0.12);
+          opacity: 1;
+          filter: none;
+          transform: scale(1.08);
+          z-index: 2;
+        }
+        .testimonial-item-carousel.active h3,
+        .testimonial-item-carousel.active p,
+        .testimonial-item-carousel.active .scrollable-text-container {
+          color: #fff !important;
+        }
+        .testimonial-item-carousel .testimonial-img {
+          border: 4px solid #fff;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+          width: 120px;
+          height: 120px;
+          object-fit: cover;
+          margin-bottom: 20px;
+          transition: transform 0.3s, border 0.3s;
+        }
+        .testimonial-item-carousel.active .testimonial-img {
+          border: 4px solid #2575fc;
+          box-shadow: 0 8px 24px rgba(218, 223, 233, 0.18);
+        }
+        .testimonial-item-carousel h3 {
+          font-size: 1.5rem;
+          font-weight: 600;
+          margin-top: 20px;
+          color: #333;
+        }
+        .testimonial-item-carousel .scrollable-text-container {
+          max-height: 150px;
+          overflow: auto;
+          scrollbar-width: none;
+          msOverflowStyle: none;
+        }
+        .testimonial-item-carousel .scrollable-text-container::-webkit-scrollbar {
+          display: none;
+        }
+        @media (max-width: 900px) {
+          .testimonial-item-carousel { height: 400px; padding: 20px; }
+        }
+        @media (max-width: 600px) {
+          .testimonial-item-carousel { height: 350px; padding: 10px; }
+        }
+      `}</style>
     </section>
   );
 };

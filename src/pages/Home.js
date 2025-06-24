@@ -56,6 +56,10 @@ const HomePage = observer(() => {
   useEffect(() => {
     setShow(true); // Trigger the animation when the component mounts
   }, []);
+  useEffect(() => {
+    websiteStore?.getTeams();
+    AOS.init({ duration: 1000, once: true });
+  }, []);
 
   // Transition for the entire content
   const transitions = useTransition(show, {
@@ -78,20 +82,194 @@ const HomePage = observer(() => {
   return (
     <div>
       <style>
-        {
-          `
-    .header-relative{
-    position:absolute !important;
+        {`
+    .header-relative {
+      position:absolute !important;
     }
     .header-relative .nav-menu a {
-    color: white ;
+      color: white;
     }
 
-    #header.fixed .nav-menu a{
-    color: black !important;
+    #header.fixed .nav-menu a {
+      color: black !important;
     }
-    `
-        }
+
+    /* blink animation */
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%      { opacity: 0; }
+    }
+
+    /* apply blink to your Firstminer title */
+    .Firstminer-title {
+      animation: blink 1.5s linear infinite;
+    }
+       .img-wrapper {
+    display: inline-block;
+    border: 2px solid #ddd;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  @keyframes float {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+  }
+  .floating-img {
+    display: block;
+    animation: float 4s ease-in-out infinite;
+  }
+     @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0; }
+  }
+
+  /* blink the services heading */
+  #services .section-header h2 {
+    animation: blink 1.5s linear infinite;
+  }
+
+  /* --- Improved Technology Card Styles --- */
+ .card-technology {
+  width: 240px;
+  height: 160px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 24px 12px;
+  transition: box-shadow 0.2s, transform 0.2s;
+  border: none;
+}
+
+.card-technology:hover {
+  box-shadow: 0 12px 32px rgba(0,0,0,0.16);
+  transform: translateY(-6px) scale(1.04);
+}
+
+.card-image {
+  max-width: 140px;
+  max-height: 90px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.container {
+  max-width: 1400px;
+}
+
+.d-flex.justify-content-around.flex-wrap.mt-4 {
+  justify-content: center !important;
+  gap: 0 24px;
+}
+
+/* Add text-shadow to headings for a soft effect */
+.client-title, .section-header h2 {
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+/* --- Marquee Section Improvements --- */
+.horizontal-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  background: #f8f9fa;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 18px 0;
+  margin: 30px 0 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.horizontal-marquee-track {
+  display: flex;
+  align-items: center;
+  animation: marquee 22s linear infinite;
+  gap: 32px;
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.client-box {
+  width: 260px;
+  min-width: 260px;
+  height: 120px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 12px;
+  margin: 0 8px;
+  transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
+}
+.client-box:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  transform: translateY(-8px) scale(1.06);
+  background:rgb(169, 231, 238);
+}
+.client-box img {
+  max-height: 50px;
+  margin-bottom: 10px;
+  object-fit: contain;
+}
+.client-box div {
+  text-align: center;
+  font-size: 16px;
+  color: #444;
+  font-weight: 500;
+}
+
+/* Flip card styles for about section */
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 350px;
+  perspective: 1000px;
+  border-radius: 8px;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.7s cubic-bezier(0.4,0.2,0.2,1);
+  transform-style: preserve-3d;
+  border-radius: 8px;
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.flip-card-front {
+  z-index: 2;
+}
+.flip-card-back {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+        `}
       </style>
       {loader ? <Loader /> : <div><Header />
 
@@ -117,16 +295,29 @@ const HomePage = observer(() => {
               <div className="row">
                 {/* Animated Image */}
                 <div className="col-lg-6 about-img">
-                  {imageTransition((style, item) =>
-                    item ? (
-                      <animated.img
-                        src="assets/img/about-img.jpg"
-                        alt=""
-                        style={style}
-                      />
-                    ) : null
-                  )}
+                  {/* Flipping image card */}
+                  <div className="flip-card">
+                    <div className="flip-card-inner">
+                      <div className="flip-card-front">
+                        <img
+                          src="assets/img/about-img.jpg"
+                          alt="About Firstminer"
+                          className="floating-img"
+                          style={{ width: '100%', height: 'auto' }}
+                        />
+                      </div>
+                      <div className="flip-card-back">
+                        <img
+                          src="assets/img/laptop-tech.jpg"
+                          alt="Coding"
+                          className="floating-img"
+                          style={{ width: '100%', height: 'auto' }}
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
+
 
                 {/* Animated Content */}
                 <div className="col-lg-6 content">
@@ -137,13 +328,13 @@ const HomePage = observer(() => {
                           Firstminer Technology Solutions Pvt. Ltd .
                         </h2>
                         <ul>
-                        <li className="mt-5">
-                          Our team of specialists consistently delivers
-                          outstanding results combining creative ideas with our
-                          vast experience. We can help you build a sustainable,
-                          meaningful relationship with your clients by engaging
-                          them with your brand using social media.
-                        </li>
+                          <li className="mt-5">
+                            Our team of specialists consistently delivers
+                            outstanding results combining creative ideas with our
+                            vast experience. We can help you build a sustainable,
+                            meaningful relationship with your clients by engaging
+                            them with your brand using social media.
+                          </li>
                         </ul>
                         <ul>
                           <li>
@@ -169,10 +360,10 @@ const HomePage = observer(() => {
           </section>
           {/* #about */}
 
-          <section id="services" data-aos="fade-up">
-            <div className="container">
-              <div className="section-header" data-aos="fade-up">
-                <h2>Services</h2>
+         <section id="services" data-aos="fade-up">
+  <div className="container">
+    <div className="section-header" data-aos="fade-up">
+      <h2 className="blink-heading">Services</h2>
 
                 <p className="servies-para">
                   Firstminer Tech specializes in creating custom websites and
@@ -274,7 +465,7 @@ const HomePage = observer(() => {
                       <a>Commercial Video Creation</a>
                     </h4>
                     <p className="description">
-                    Understand how your videos are performing, gain valuable insights into their reach, and analyze the kind of target audience viewing, engaging, and interacting with them.
+                      Understand how your videos are performing, gain valuable insights into their reach, and analyze the kind of target audience viewing, engaging, and interacting with them.
                     </p>
                   </div>
                 </div>
@@ -298,7 +489,7 @@ const HomePage = observer(() => {
                 <div className="col-lg-6" data-aos="zoom-in">
                   <div className="box wow fadeInLeft" data-wow-delay="0.2s">
                     <div className="icon">
-                      <img src="assets/img/social1.png" width={50}/>
+                      <img src="assets/img/social1.png" width={50} />
                     </div>
                     <h4 className="title">
                       <a>Digital Marketing</a>
@@ -323,7 +514,43 @@ const HomePage = observer(() => {
             long-lasting partnerships and work closely with each client to deliver
             impactful results.
           </p>
-          <ClientPage />
+          <div className="horizontal-marquee-container">
+            <div className="horizontal-marquee-track">
+              <div className="client-box"> {/* Box 1 */}
+                <img src="/assets/img/out.jpg" alt="Outreach" style={{height: 50}} />
+                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>A leading platform in crypto trading offering advanced features.</div>
+              </div>
+              <div className="client-box"> {/* Box 2 */}
+                <img src="/assets/img/ABVV.png" alt="College" style={{height: 50}} />
+                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Empowering the next generation of leaders.</div>
+              </div>
+              <div className="client-box"> {/* Box 3 */}
+                <img src="/assets/img/railway.png" alt="Indian Railways" style={{height: 50}} />
+                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Connecting people, places, and progress.</div>
+              </div>
+              <div className="client-box"> {/* Box 4 */}
+                <img src="/assets/img/Realestatebaba-2.jpg" alt="Realestate Baba" style={{height: 50}} />
+                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Realestate Baba is a platform for seamless property transactions.</div>
+              </div>
+              {/* Duplicate for seamless loop */}
+              <div className="client-box"> {/* Box 1 */}
+                <img src="/assets/img/out.jpg" alt="Outreach" style={{height: 50}} />
+                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>A leading platform in crypto trading offering advanced features.</div>
+              </div>
+              <div className="client-box"> {/* Box 2 */}
+                <img src="/assets/img/ABVV.png" alt="College" style={{height: 50}} />
+                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Empowering the next generation of leaders.</div>
+              </div>
+              <div className="client-box"> {/* Box 3 */}
+                <img src="/assets/img/railway.png" alt="Indian Railways" style={{height: 50}} />
+                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Connecting people, places, and progress.</div>
+              </div>
+              <div className="client-box"> {/* Box 4 */}
+                <img src="/assets/img/Realestatebaba-2.jpg" alt="Realestate Baba" style={{height: 50}} />
+                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Realestate Baba is a platform for seamless property transactions.</div>
+              </div>
+            </div>
+          </div>
 
 
 
@@ -473,7 +700,7 @@ const HomePage = observer(() => {
               <div className="col-12">
                 <h2 className="client-title mt-4">Why to Choose US</h2>
                 <p className="text-muted">
-                As We are a technical solution partner, we bring unmatched expertise and tools to ensure your success.
+                  As We are a technical solution partner, we bring unmatched expertise and tools to ensure your success.
                 </p>
               </div>
             </div>
