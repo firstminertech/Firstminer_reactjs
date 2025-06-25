@@ -93,6 +93,33 @@ function CareerPage() {
                                             Enjoy flexible working hours and employee wellness programs. We support your personal and professional life, ensuring you have time for what matters most.
                                         </p>
                                     </div>
+                                    {/* New Card 1: Diversity & Inclusion */}
+                                    <div className="benefit-card tilt-card" data-aos="fade-up" data-aos-delay="300">
+                                        <img src="assets/img/diversity.jpg" alt="Diversity & Inclusion" className="benefit-photo" />
+                                        <i className="bi bi-people benefit-icon"></i>
+                                        <h5 className="benefit-title">Diversity & Inclusion</h5>
+                                        <p className="benefit-description">
+                                            We celebrate diversity and foster an inclusive environment where everyone feels respected and valued, regardless of background or identity.
+                                        </p>
+                                    </div>
+                                    {/* New Card 2: Cutting-Edge Technology */}
+                                    <div className="benefit-card tilt-card" data-aos="fade-up" data-aos-delay="400">
+                                        <img src="assets/img/technology.jpg" alt="Cutting-Edge Technology" className="benefit-photo" />
+                                        <i className="bi bi-cpu benefit-icon"></i>
+                                        <h5 className="benefit-title">Cutting-Edge Technology</h5>
+                                        <p className="benefit-description">
+                                            Work with the latest tools and technologies, and be part of a team that encourages innovation and continuous learning.
+                                        </p>
+                                    </div>
+                                    {/* New Card 3: Employee Recognition */}
+                                    <div className="benefit-card tilt-card" data-aos="fade-up" data-aos-delay="500">
+                                        <img src="assets/img/recognition.jpg" alt="Employee Recognition" className="benefit-photo" />
+                                        <i className="bi bi-award benefit-icon"></i>
+                                        <h5 className="benefit-title">Employee Recognition</h5>
+                                        <p className="benefit-description">
+                                            Your contributions are noticed and rewarded. We believe in recognizing and celebrating achievements, big and small.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </section>

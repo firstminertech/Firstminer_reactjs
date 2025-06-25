@@ -300,6 +300,14 @@ const HomePage = observer(() => {
     transform: translateY(0) scale(1);
   }
 }
+.card-technology.shadow {
+  box-shadow: 0 6px 24px rgba(128,0,255,0.18), 0 2px 8px rgba(0,0,0,0.10);
+  border: 2px solid #a259ff;
+}
+.card-technology.shadow:hover {
+  box-shadow: 0 12px 32px rgba(128,0,255,0.28), 0 8px 24px rgba(0,0,0,0.16);
+  border: 2.5px solid #c084fc;
+}
         `}
       </style>
       {loader ? <Loader /> : <div><Header />
@@ -577,133 +585,46 @@ const HomePage = observer(() => {
           </div>
           <div className="container">
             <div className="d-flex justify-content-around flex-wrap mt-4">
-              <div className="card-container d-flex justify-content-center" data-aos="zoom-in">
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/mern.jpg"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-
-                </div>
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/mern.jpg" alt="Card Image" className="card-image" />
               </div>
-              <div className="card-container" data-aos="zoom-in">
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/django.png"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-
-                </div>
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/django.png" alt="Card Image" className="card-image" />
               </div>
-              <div className="card-container" data-aos="zoom-in">
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/react.jpg"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-
-                </div>
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/react.jpg" alt="Card Image" className="card-image" />
               </div>
-              <div className="card-container" data-aos="zoom-in">
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/Flutter.jpg"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-
-                </div>
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/Flutter.jpg" alt="Card Image" className="card-image" />
               </div>
             </div>
             <div className="d-flex justify-content-around flex-wrap mt-4">
-              <div className="card-container" data-aos="zoom-in">
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/code.png"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-
-                </div>
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/code.png" alt="Card Image" className="card-image" />
               </div>
-              <div className="card-container" data-aos="zoom-in">
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/ios.png"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-
-                </div>
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/ios.png" alt="Card Image" className="card-image" />
               </div>
-              <div className="card-container" data-aos="zoom-in">
-
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/Azure.png"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-
-                </div>
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/Azure.png" alt="Card Image" className="card-image" />
               </div>
-              <div className="card-container" data-aos="zoom-in">
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/net.png"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-                </div>
-
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/net.png" alt="Card Image" className="card-image" />
               </div>
-
             </div>
             <div className="d-flex justify-content-around flex-wrap mt-4">
-              <div className="card-container d-flex justify-content-center" data-aos="zoom-in">
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/android.png"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-
-                </div>
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/android.png" alt="Card Image" className="card-image" />
               </div>
-              <div className="card-container" data-aos="zoom-in">
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/java.png"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-
-                </div>
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/java.png" alt="Card Image" className="card-image" />
               </div>
-              <div className="card-container" data-aos="zoom-in">
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/next.png"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-
-                </div>
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/next.png" alt="Card Image" className="card-image" />
               </div>
-              <div className="card-container" data-aos="zoom-in">
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/Laravel.png"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-
-                </div>
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/Laravel.png" alt="Card Image" className="card-image" />
               </div>
-
             </div>
           </div>
 

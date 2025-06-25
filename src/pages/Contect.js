@@ -62,7 +62,7 @@ const ContactPage = () => {
               .contact-info {
                 display: flex;
                 justify-content: center;
-                gap: 32px;
+                // gap: 32px;
                 margin-bottom: 32px;
                 flex-wrap: wrap;
               }
@@ -78,7 +78,7 @@ const ContactPage = () => {
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                padding: 32px 24px;
+                padding: 20px;
                 margin: 0;
                 transition: box-shadow 0.25s, transform 0.25s, background 0.25s;
                 cursor: pointer;
@@ -87,7 +87,7 @@ const ContactPage = () => {
               .contact-card:hover {
                 transform: scale(1.05);
                 box-shadow: 0 12px 32px rgba(104,141,215,0.18);
-                background: #fff;
+                background: #rgba(104,141,215,0.18;
                 color: #111;
               }
               .contact-title {
@@ -96,7 +96,7 @@ const ContactPage = () => {
                 color: #1de9b6;
                 display: flex;
                 align-items: center;
-                gap: 8px;
+                // gap: 8px;
                 margin-bottom: 10px;
                 text-transform: uppercase;
                 letter-spacing: 1px;
@@ -122,33 +122,65 @@ const ContactPage = () => {
               </div>
             </>
 
-            <div className="row contact-info mb-5">
-              <div className="contact-card" data-aos="fade-up">
-                <div className="contact-title">
-                  Address <FaMapMarkerAlt className="contact-icon" />
+            {/* Contact Info Column - Vertical Arrangement, Left Aligned */}
+            <div
+              style={{
+                background: 'linear-gradient(135deg, #f8faff 60%, #e3f0ff 100%)',
+                borderRadius: '18px',
+                boxShadow: '0 4px 16px rgba(31,38,135,0.08)',
+                padding: '18px 16px',
+                marginBottom: '32px',
+                maxWidth: '400px',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}
+            >
+              <div
+                className="contact-info-col d-flex flex-column justify-content-start align-items-start mb-5"
+                style={{
+                  gap: 0,
+                  marginBottom: 0,
+                  padding: 0,
+                  width: '100%',
+                  maxWidth: '600px',
+                }}
+              >
+                <div style={{width: '100%', marginBottom: '2px'}} data-aos="fade-up">
+                  <div style={{fontWeight: 700, fontSize: '1.1rem', color: '#1de9b6', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '2px', display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'flex-start'}}>
+                    Address <FaMapMarkerAlt style={{fontSize: '1.2em', color: '#1de9b6'}} />
+                  </div>
+                  <address style={{color: '#222', fontSize: '1rem', marginBottom: 0, lineHeight: 1.5, textAlign: 'left'}}>
+                    Firstminer Technology Solutions Pvt. Ltd,<br />
+                    3rd floor RK Complex, Jagdamba colony,<br />
+                    Seepat Road Bilaspur 495001 (CG)
+                  </address>
                 </div>
-                <address className="contact-para10">
-                  Firstminer Technology Solutions Pvt. Ltd, 3rd floor RK
-                  Complex,, Jagdamba colony,Seepat Road Bilaspur 495001 (CG)
-                </address>
-              </div>
-              <div className="contact-card" data-aos="fade-up" data-aos-delay="100">
-                <div className="contact-title">
-                  Phone Number <FaPhoneAlt className="contact-icon" />
+                <div style={{width: '100%', marginBottom: '2px'}} data-aos="fade-up" data-aos-delay="100">
+                  <div style={{fontWeight: 700, fontSize: '1.1rem', color: '#1de9b6', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '2px', display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'flex-start'}}>
+                    Phone <FaPhoneAlt style={{fontSize: '1.2em', color: '#1de9b6'}} />
+                  </div>
+                  <p style={{color: '#222', fontSize: '1rem', marginBottom: 0, textAlign: 'left'}}>
+                    <a href="tel:07752358727" style={{color: '#222', textDecoration: 'none'}}>07752358727</a>
+                  </p>
                 </div>
-                <p>
-                  <a href="tel:07752358727">07752358727</a>
-                </p>
-              </div>
-              <div className="contact-card" data-aos="fade-up" data-aos-delay="200">
-                <div className="contact-title">
-                  Email <FaEnvelope className="contact-icon" />
+                <div style={{width: '100%', marginBottom: 0}} data-aos="fade-up" data-aos-delay="200">
+                  <div style={{fontWeight: 700, fontSize: '1.1rem', color: '#1de9b6', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '2px', display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'flex-start'}}>
+                    Email <FaEnvelope style={{fontSize: '1.2em', color: '#1de9b6'}} />
+                  </div>
+                  <p style={{color: '#222', fontSize: '1rem', marginBottom: 0, textAlign: 'left'}}>
+                    <a href="mailto:firstminertech@gmail.com" style={{color: '#222', textDecoration: 'none'}}>
+                      Info@firstminer.in
+                    </a>
+                  </p>
                 </div>
-                <p>
-                  <a href="mailto:firstminertech@gmail.com">
-                    Info@firstminer.in
-                  </a>
-                </p>
+                {/* Office Hours Section */}
+                <div style={{width: '100%', marginTop: '14px', borderTop: '1px solid #e3f0ff', paddingTop: '10px'}}>
+                  <div style={{fontWeight: 600, fontSize: '1.05rem', color: '#1de9b6', marginBottom: '2px', textTransform: 'uppercase', letterSpacing: '0.5px'}}>Office Hours:</div>
+                  <div style={{color: '#222', fontSize: '0.98rem', lineHeight: 1.4}}>
+                    Monday–Saturday: 10:00 AM–6:00 PM (IST)<br />
+                    Sunday: Closed
+                  </div>
+                </div>
               </div>
             </div>
 
