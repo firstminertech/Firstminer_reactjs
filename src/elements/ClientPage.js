@@ -70,6 +70,19 @@ const ClientPage = observer(() => {
         </div>
         </Link>
       </div>
+      <div className="col-md-3 my-3 d-flex client-card11">
+        <a href="https://play.google.com/store/apps/details?id=com.dabbavala&hl=en-us" target="_blank" rel="noopener noreferrer" className="w-100 text-decoration-none">
+          <div className="text-center p-4 shadow bg-white w-100 client-box1">
+            <img
+              src="./assets/img/unnamed.webp"
+              alt="Dabbavala App"
+              className="img-fluid mb-3"
+              style={{ maxWidth: "200px", height: "200px", objectFit: "contain", display: 'block', margin: '0 auto 10px auto' }}
+            />
+            <p className="text-muted">Dabbavala App: Authentic tiffin service delivered to your doorstep.</p>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </section>

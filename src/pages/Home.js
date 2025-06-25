@@ -202,12 +202,12 @@ const HomePage = observer(() => {
 .horizontal-marquee-track {
   display: flex;
   align-items: center;
-  animation: marquee 22s linear infinite;
+  animation: marquee 30s linear infinite;
   gap: 32px;
 }
 @keyframes marquee {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-33.333%); }
 }
 .client-box {
   width: 260px;
@@ -537,39 +537,31 @@ const HomePage = observer(() => {
           </p>
           <div className="horizontal-marquee-container">
             <div className="horizontal-marquee-track">
-              <div className="client-box"> {/* Box 1 */}
-                <img src="/assets/img/out.jpg" alt="Outreach" style={{height: 50}} />
-                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>A leading platform in crypto trading offering advanced features.</div>
-              </div>
-              <div className="client-box"> {/* Box 2 */}
-                <img src="/assets/img/ABVV.png" alt="College" style={{height: 50}} />
-                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Empowering the next generation of leaders.</div>
-              </div>
-              <div className="client-box"> {/* Box 3 */}
-                <img src="/assets/img/railway.png" alt="Indian Railways" style={{height: 50}} />
-                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Connecting people, places, and progress.</div>
-              </div>
-              <div className="client-box"> {/* Box 4 */}
-                <img src="/assets/img/Realestatebaba-2.jpg" alt="Realestate Baba" style={{height: 50}} />
-                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Realestate Baba is a platform for seamless property transactions.</div>
-              </div>
-              {/* Duplicate for seamless loop */}
-              <div className="client-box"> {/* Box 1 */}
-                <img src="/assets/img/out.jpg" alt="Outreach" style={{height: 50}} />
-                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>A leading platform in crypto trading offering advanced features.</div>
-              </div>
-              <div className="client-box"> {/* Box 2 */}
-                <img src="/assets/img/ABVV.png" alt="College" style={{height: 50}} />
-                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Empowering the next generation of leaders.</div>
-              </div>
-              <div className="client-box"> {/* Box 3 */}
-                <img src="/assets/img/railway.png" alt="Indian Railways" style={{height: 50}} />
-                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Connecting people, places, and progress.</div>
-              </div>
-              <div className="client-box"> {/* Box 4 */}
-                <img src="/assets/img/Realestatebaba-2.jpg" alt="Realestate Baba" style={{height: 50}} />
-                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Realestate Baba is a platform for seamless property transactions.</div>
-              </div>
+              {[...Array(3)].flatMap((_, i) => [
+                <div className="client-box" key={`out-${i}`}>
+                  <img src="/assets/img/out.jpg" alt="Outreach" style={{height: 50}} />
+                  <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>A leading platform in crypto trading offering advanced features.</div>
+                </div>,
+                <div className="client-box" key={`abvv-${i}`}>
+                  <img src="/assets/img/ABVV.png" alt="College" style={{height: 50}} />
+                  <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Empowering the next generation of leaders.</div>
+                </div>,
+                <div className="client-box" key={`railway-${i}`}>
+                  <img src="/assets/img/railway.png" alt="Indian Railways" style={{height: 50}} />
+                  <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Connecting people, places, and progress.</div>
+                </div>,
+                <div className="client-box" key={`realestate-${i}`}>
+                  <img src="/assets/img/Realestatebaba-2.jpg" alt="Realestate Baba" style={{height: 50}} />
+                  <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Realestate Baba is a platform for seamless property transactions.</div>
+                </div>,
+                <div className="client-box" key={`dabbavala-${i}`}>
+                  <img src="/assets/img/unnamed.webp" alt="Dabbavala App" style={{height: 65, display: 'block', margin: '0 auto 10px auto', objectFit: 'contain'}} />
+                  <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a', textAlign: 'center'}}>
+                    Dabbavala App: Authentic tiffin service delivered to your doorstep.
+                  </div>
+                </div>
+                
+              ])}
             </div>
           </div>
 
