@@ -29,7 +29,6 @@ import PortfolioData from './pages/portfolioData';
 import Loader from './elements/loader';
 
 
-
 function App() {
   return (
     <div>
