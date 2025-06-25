@@ -78,6 +78,13 @@ const HomePage = observer(() => {
     delay: 300, // Slight delay for image
   });
 
+  // Animation for about section content
+  const aboutContentSpring = useSpring({
+    from: { opacity: 0, transform: 'translateY(40px)' },
+    to: { opacity: 1, transform: 'translateY(0)' },
+    config: { tension: 180, friction: 16 },
+    delay: 300,
+  });
 
   return (
     <div>
@@ -295,65 +302,47 @@ const HomePage = observer(() => {
               <div className="row">
                 {/* Animated Image */}
                 <div className="col-lg-6 about-img">
-                  {/* Flipping image card */}
-                  <div className="flip-card">
-                    <div className="flip-card-inner">
-                      <div className="flip-card-front">
-                        <img
-                          src="assets/img/about-img.jpg"
-                          alt="About Firstminer"
-                          className="floating-img"
-                          style={{ width: '100%', height: 'auto' }}
-                        />
-                      </div>
-                      <div className="flip-card-back">
-                        <img
-                          src="assets/img/laptop-tech.jpg"
-                          alt="Coding"
-                          className="floating-img"
-                          style={{ width: '100%', height: 'auto' }}
-                        />
-                      </div>
-                    </div>
-                  </div>
+                  <img
+                    src="assets/img/about-img.jpg"
+                    alt="About Firstminer"
+                    className="floating-img"
+                    style={{ width: '100%', height: 'auto' }}
+                  />
                 </div>
 
 
                 {/* Animated Content */}
                 <div className="col-lg-6 content">
-                  {transitions((style, item) =>
-                    item ? (
-                      <>
-                        <h2 className="Firstminer-title">
-                          Firstminer Technology Solutions Pvt. Ltd .
-                        </h2>
-                        <ul>
-                          <li className="mt-5">
-                            Our team of specialists consistently delivers
-                            outstanding results combining creative ideas with our
-                            vast experience. We can help you build a sustainable,
-                            meaningful relationship with your clients by engaging
-                            them with your brand using social media.
-                          </li>
-                        </ul>
-                        <ul>
-                          <li>
-                            <i className="ion-android-checkmark-circle" /> Our
-                            team develops effective content strategies for forward
-                            thinking companies. We have a proven track record in
-                            increasing searnch engine rankings.
-                          </li>
-                          <li>
-                            <i className="ion-android-checkmark-circle" />
-                            Our digital marketing, Mobile Application Development,
-                            Website Development work speaks for itself. We deliver
-                            an outstanding service custom-tailored to each and
-                            every one of our clients.
-                          </li>
-                        </ul>
-                      </>
-                    ) : null
-                  )}
+                  {/* Animated About Content */}
+                  <animated.div style={aboutContentSpring}>
+                    <h2 className="Firstminer-title">
+                      Firstminer Technology Solutions Pvt. Ltd .
+                    </h2>
+                    <ul>
+                      <li className="mt-5">
+                        Our team of specialists consistently delivers
+                        outstanding results combining creative ideas with our
+                        vast experience. We can help you build a sustainable,
+                        meaningful relationship with your clients by engaging
+                        them with your brand using social media.
+                      </li>
+                    </ul>
+                    <ul>
+                      <li>
+                        <i className="ion-android-checkmark-circle" /> Our
+                        team develops effective content strategies for forward
+                        thinking companies. We have a proven track record in
+                        increasing searnch engine rankings.
+                      </li>
+                      <li>
+                        <i className="ion-android-checkmark-circle" />
+                        Our digital marketing, Mobile Application Development,
+                        Website Development work speaks for itself. We deliver
+                        an outstanding service custom-tailored to each and
+                        every one of our clients.
+                      </li>
+                    </ul>
+                  </animated.div>
                 </div>
               </div>
             </div>
