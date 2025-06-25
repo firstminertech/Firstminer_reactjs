@@ -47,6 +47,15 @@ const ContactPage = () => {
       {loader ? <Loader /> : <div>
 
         <Header />
+        {/* Top Contact Image - now above the heading */}
+        <div className="contact-top-image-wrapper" style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '32px auto 0 auto' }}>
+          <img 
+            src="/assets/img/contactus.jpg" 
+            alt="Contact Us Banner" 
+            className="contact-top-image"
+            style={{ width: '100vw', maxWidth: '1500px', height: '220px', objectFit: 'cover', borderRadius: '15px', boxShadow: '0 4px 24px rgba(0,0,0,0.10)' }}
+          />
+        </div>
         <section id="contact" className="wow fadeInUp py-5 ">
           <div className="container">
             <style>{`

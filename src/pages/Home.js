@@ -276,6 +276,30 @@ const HomePage = observer(() => {
   transform: rotateY(180deg);
   z-index: 1;
 }
+
+.icon img, .service-icon, .benefit-icon {
+  transition: transform 0.3s cubic-bezier(.25,1.5,.5,1.1), box-shadow 0.3s, filter 0.3s;
+  will-change: transform, box-shadow, filter;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  animation: iconFadeInUp 0.8s cubic-bezier(.25,1.5,.5,1.1) forwards;
+}
+.icon img:hover, .service-icon:hover, .benefit-icon:hover {
+  transform: scale(1.18) translateY(-6px) rotate(-6deg);
+  box-shadow: 0 8px 24px rgba(25, 118, 210, 0.18);
+  filter: brightness(1.08) saturate(1.12);
+}
+@keyframes iconFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
         `}
       </style>
       {loader ? <Loader /> : <div><Header />
