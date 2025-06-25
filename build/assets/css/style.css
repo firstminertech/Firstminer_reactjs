@@ -2209,17 +2209,14 @@ body.mobile-nav-active #mobile-nav-toggle {
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-left: 5px solid #50bb92; /* Light Green */
-  opacity: 0; /* Start with the card being invisible */
-  transform: translateY(20px); /* Start with the card being slightly down */
-  animation: fadeInUp 0.8s forwards; /* Animate cards with fade and slide */
 }
 
 .service-card:hover {
-  transform: translateY(-10px); /* Slightly lift the card */
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1); /* Enhance shadow on hover */
-  border-left: 5px solid #379dbf; /* Change border color on hover */
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid #379dbf; /* Light Blue */
 }
 
 .service-title {
@@ -2227,31 +2224,12 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-weight: 600;
   margin-bottom: 15px;
   color: #446ca4; /* Dark Blue */
-  transition: color 0.3s ease; /* Transition for title color */
-   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-}
-.service-title:hover {
-  color: #50bb92; /* Light Green color on hover */
 }
 
 .service-description {
   font-size: 1rem;
   color: #555;
   line-height: 1.6;
-  transition: color 0.3s ease;
-}
-.service-card:hover .service-description {
-  color: #379dbf; /* Change description text color on hover */
-}
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 .servies-para{
   text-align: center;
@@ -3485,205 +3463,121 @@ p {
 {
   width: 48px !important;
 }
-/* Blink keyframes */
+
+@keyframes rotatePop {
+  0% { transform: scale(1) rotate(0deg); }
+  60% { transform: scale(1.08) rotate(-2deg); }
+  100% { transform: scale(1.04) rotate(-2deg); }
+}
+.box {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: background 0.4s cubic-bezier(.4,2,.6,1),
+              color 0.4s cubic-bezier(.4,2,.6,1),
+              transform 0.3s cubic-bezier(.4,2,.6,1),
+              box-shadow 0.3s cubic-bezier(.4,2,.6,1);
+}
+.box:hover {
+  animation: rotatePop 0.5s;
+  transform: scale(1.04) rotate(-2deg);
+  box-shadow: 0 16px 40px rgba(41,72,255,0.18);
+  background: #db9898;
+  color: #181c2f;
+}
+.box:hover h4,
+.box:hover p,
+.box:hover .title,
+.box:hover .description {
+  color: #181c2f !important;
+}
+
 @keyframes blink {
   0%, 100% { opacity: 1; }
-  50%      { opacity: 0; }
+  50% { opacity: 0; }
 }
-
-/* Apply blink to all headings */
-h1, h2, h3, h4, h5, h6 {
-  animation: blink 1.5s linear infinite;
-}
-@keyframes pulse {
-  0%   { transform: scale(1);   opacity: 1; }
-  50%  { transform: scale(1.05); opacity: 0.8; }
-  100% { transform: scale(1);   opacity: 1; }
-}
-
-/* apply it only to your Firstminer title */
-.Firstminer-title {
-  display: inline-block;          /* so transform behaves nicely */
-  animation: pulse 2s ease-in-out infinite;
-}
-/* container box + shadow */
-.img-wrapper {
-  display: inline-block;
-  border: 2px solid #ddd;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-/* gentle up-and-down float */
-@keyframes float {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-15px); }
-  100% { transform: translateY(0); }
-}
-
-/* apply float to the inner image */
-.floating-img {
-  display: block;
-  animation: float 4s ease-in-out infinite;
-}
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0; }
-}
-
-/* Option A: if you added the class */
 .blink-heading {
-  animation: blink 1.5s linear infinite;
-}
-
-/* Option B: direct selector */
-#services .section-header h2 {
-  animation: blink 1.5s linear infinite;
+  animation: blink 0.5s linear infinite;
 }
 
 .vertical-marquee-container {
   overflow: hidden;
-  height: 350px; /* Adjust as needed */
+  height: 350px;
+  width: 500px;
+  margin: 0 auto;
   position: relative;
 }
 
 .vertical-marquee-track {
   display: flex;
   flex-direction: column;
-  gap: 32px; /* space between boxes */
-  animation: vertical-marquee 8s linear infinite;
+  gap: 32px;
+  animation: vertical-marquee 3s linear infinite;
 }
 
 @keyframes vertical-marquee {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-50%);
-  }
-}
-.horizontal-marquee-track {
-  display: flex;
-  align-items: center;      /* vertical centering of all boxes */
-  gap:5px;                /* space between boxes */
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
 }
 
 .client-box {
-  flex: 0 0 190px;          /* fixed width */
-  width: 190px;
-  height: 46px;             /* fixed height */
-  padding: 10px;            /* add some padding to give space */
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-
-  display: flex;            /* enable flex layout inside the box */
+  border-radius: 30px;
+  box-shadow: 0 8px 32px 0 rgba(80, 0, 255, 0.08), 0 1.5px 6px 0 rgba(80, 0, 255, 0.10);
+  padding: 40px 30px;
+  margin: 0 auto;
+  width: 400px;
+  min-height: 220px;
+  display: flex;
   flex-direction: column;
-  align-items: center;      /* horizontal centering of children */
-  justify-content: center;  /* vertical centering of children */
-  text-align: center;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.client-box img {
+  max-width: 120px;
+  margin-bottom: 20px;
+}
+
+.horizontal-marquee-container {
+  overflow: hidden;
+  width: 100vw;
+  height: 350px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.horizontal-marquee-track {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  animation: horizontal-marquee 16s linear infinite;
+  align-items: center;
+}
+
+@keyframes horizontal-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.client-box {
+  background: #fff;
+  border-radius: 30px;
+  box-shadow: 0 8px 32px 0 rgba(80, 0, 255, 0.08), 0 1.5px 6px 0 rgba(80, 0, 255, 0.10);
+  padding: 40px 30px;
+  margin: 0 16px;
+  width: 320px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.3s, transform 0.3s;
   box-sizing: border-box;
 }
-
 .client-box img {
-  max-width: 40px;          /* control logo size */
-  max-height: 40px;
-  object-fit: contain;
-  margin-bottom: 8px;       /* space between logo and text */
-}
-
-.client-box .mt-3 {
-  font-size: 12px;          /* adjust font size */
-  overflow: hidden;         
-  text-overflow: ellipsis;  /* truncate text if it's too long */
-}
-/* Service Card Animations */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Animation for the service cards */
-.service-card {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  opacity: 0;
-  animation: fadeIn 1s forwards;
+  max-width: 100%;
+  height: 120px;
   margin-bottom: 20px;
-}
-
-.service-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-/* Adding slight delay to each card */
-.service-card:nth-child(1) {
-  animation-delay: 0.2s;
-}
-
-.service-card:nth-child(2) {
-  animation-delay: 0.4s;
-}
-
-.service-card:nth-child(3) {
-  animation-delay: 0.6s;
-}
-
-.service-card:nth-child(4) {
-  animation-delay: 0.8s;
-}
-
-.service-card:nth-child(5) {
-  animation-delay: 1s;
-}
-
-.service-card:nth-child(6) {
-  animation-delay: 1.2s;
-}
-
-/* Benefits Section Card Animations */
-.benefit-card {
-  opacity: 0;
-  transform: translateY(50px);
-  animation: fadeIn 1s forwards;
-}
-
-.benefit-card:nth-child(1) {
-  animation-delay: 0.5s;
-}
-
-.benefit-card:nth-child(2) {
-  animation-delay: 0.7s;
-}
-
-.benefit-card:nth-child(3) {
-  animation-delay: 0.9s;
-}
-
-.benefit-card:nth-child(4) {
-  animation-delay: 1.1s;
-}
-
-/* Add this for the fade-in on load */
-.benefit-card i {
-  font-size: 50px;
-  margin-bottom: 20px;
-  color: #50d8af;
-}
-
-/* Smooth transition for all elements */
-.container,
-.header {
-  animation: fadeIn 1.5s ease-out;
+  display: block;
 }
