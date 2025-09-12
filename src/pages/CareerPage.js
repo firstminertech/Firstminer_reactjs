@@ -3,6 +3,7 @@ import Header from "../component/Header";
 import Footer from "../component/Footer";
 import Loader from "../elements/loader";
 import { Link } from "react-router-dom";
+import SEO from "../components/SEO";
 
 function CareerPage() {
 
@@ -10,8 +11,51 @@ function CareerPage() {
     setTimeout(() => {
         setLoader(false);
     }, 500)
+
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "JobPosting",
+        "title": "Software Developer Jobs at FirstMiner Technology Solutions",
+        "description": "Join our team of talented software developers, web developers, and UI/UX designers. We offer exciting career opportunities in web development, mobile app development, and digital marketing.",
+        "hiringOrganization": {
+            "@type": "Organization",
+            "name": "FirstMiner Technology Solutions Pvt. Ltd.",
+            "url": "https://firstminer.in",
+            "logo": "https://firstminer.in/assets/img/firstminerlogo.png"
+        },
+        "jobLocation": {
+            "@type": "Place",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "3rd floor RK Complex, Jagdamba Colony, Seepat Road",
+                "addressLocality": "Bilaspur",
+                "addressRegion": "Chhattisgarh",
+                "postalCode": "495001",
+                "addressCountry": "IN"
+            }
+        },
+        "employmentType": "FULL_TIME",
+        "workHours": "40 hours per week",
+        "datePosted": "2025-01-27",
+        "validThrough": "2025-02-27",
+        "jobBenefits": [
+            "Competitive salary",
+            "Health insurance",
+            "Professional development opportunities",
+            "Flexible working hours",
+            "Collaborative work environment"
+        ]
+    };
+
     return (
         <div>
+            <SEO
+                title="Careers - Join FirstMiner Technology Solutions | Software Developer Jobs"
+                description="Join our team of talented software developers, web developers, and UI/UX designers. We offer exciting career opportunities in web development, mobile app development, and digital marketing at FirstMiner Technology Solutions."
+                keywords="careers, jobs, software developer jobs, web developer jobs, UI UX designer jobs, technology careers, FirstMiner jobs, Bilaspur jobs, Chhattisgarh jobs, software development careers"
+                url="https://firstminer.in/careers"
+                structuredData={structuredData}
+            />
             {loader ? <Loader /> :
                 <div>  <Header />
 

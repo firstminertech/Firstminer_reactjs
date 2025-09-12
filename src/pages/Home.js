@@ -15,6 +15,7 @@ import { Form, Button, Alert, Row, Col, Modal } from "react-bootstrap";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Loader from "../elements/loader";
+import SEO from "../components/SEO";
 
 const HomePage = observer(() => {
   useEffect(() => {
@@ -72,8 +73,57 @@ const HomePage = observer(() => {
   });
 
 
+  // Structured data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "FirstMiner Technology Solutions Pvt. Ltd.",
+    "alternateName": "FirstMiner Tech",
+    "url": "https://firstminer.in",
+    "logo": "https://firstminer.in/assets/img/firstminerlogo.png",
+    "description": "FirstMiner Technology Solutions Pvt. Ltd. offers comprehensive web development, mobile app development, digital marketing, SEO, and blockchain consulting services.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3rd floor RK Complex, Jagdamba Colony, Seepat Road",
+      "addressLocality": "Bilaspur",
+      "addressRegion": "Chhattisgarh",
+      "postalCode": "495001",
+      "addressCountry": "IN"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-7752358727",
+      "contactType": "customer service",
+      "email": "firstminertech@gmail.com"
+    },
+    "sameAs": [
+      "https://www.facebook.com/firstminertech",
+      "https://www.instagram.com/firstminertech",
+      "https://www.linkedin.com/company/firstminertech",
+      "https://twitter.com/firstminertech"
+    ],
+    "foundingDate": "2020",
+    "numberOfEmployees": "10-50",
+    "areaServed": "India",
+    "serviceType": [
+      "Web Development",
+      "Mobile App Development", 
+      "Digital Marketing",
+      "SEO Services",
+      "Blockchain Consulting",
+      "Software Development"
+    ]
+  };
+
   return (
     <div>
+      <SEO
+        title="FirstMiner Technology Solutions - Web Development, App Development & Digital Marketing"
+        description="FirstMiner Technology Solutions Pvt. Ltd. offers comprehensive web development, mobile app development, digital marketing, SEO, and blockchain consulting services. Transform your business with our expert solutions in Bilaspur, Chhattisgarh."
+        keywords="web development, mobile app development, digital marketing, SEO services, blockchain consulting, software development, React, Node.js, MERN stack, Bilaspur, Chhattisgarh, India, FirstMiner Technology, web design, app development, digital solutions"
+        url="https://firstminer.in"
+        structuredData={structuredData}
+      />
       <style>
         {
           `
@@ -130,9 +180,9 @@ const HomePage = observer(() => {
                   {transitions((style, item) =>
                     item ? (
                       <>
-                        <h2 className="Firstminer-title">
+                        <h1 className="Firstminer-title">
                           Firstminer Technology Solutions Pvt. Ltd .
-                        </h2>
+                        </h1>
                         <ul>
                         <li className="mt-5">
                           Our team of specialists consistently delivers
@@ -237,7 +287,7 @@ const HomePage = observer(() => {
                       <img src="assets/img/project.webp"></img>
                     </div>
                     <h4 className="title">
-                      <a>Project Explaination & Vedio Creation</a>
+                      <a>Project Explaination & Video Creation</a>
                     </h4>
                     <p className="description">
                       High-quality video ads can easily generate traffic of

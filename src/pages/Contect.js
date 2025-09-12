@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import Header from "../component/Header";
 import websiteStore from "../store/WebsiteStore";
 import Loader from "../elements/loader";
+import SEO from "../components/SEO";
 
 const ContactPage = () => {
   const [isSuccess, setIsSuccess] = useState(false);
@@ -35,8 +36,41 @@ const ContactPage = () => {
     setLoading(false);
   };
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact FirstMiner Technology Solutions",
+    "description": "Get in touch with FirstMiner Technology Solutions for web development, mobile app development, digital marketing, and other technology services. Located in Bilaspur, Chhattisgarh.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "FirstMiner Technology Solutions Pvt. Ltd.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3rd floor RK Complex, Jagdamba Colony, Seepat Road",
+        "addressLocality": "Bilaspur",
+        "addressRegion": "Chhattisgarh",
+        "postalCode": "495001",
+        "addressCountry": "IN"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-7752358727",
+        "contactType": "customer service",
+        "email": "firstminertech@gmail.com",
+        "availableLanguage": "English"
+      }
+    }
+  };
+
   return (
     <div>
+      <SEO
+        title="Contact Us - FirstMiner Technology Solutions | Get in Touch"
+        description="Contact FirstMiner Technology Solutions for web development, mobile app development, digital marketing, and other technology services. Located in Bilaspur, Chhattisgarh. Call us at +91-7752358727 or email us at firstminertech@gmail.com."
+        keywords="contact FirstMiner, web development contact, mobile app development contact, digital marketing contact, technology services contact, Bilaspur, Chhattisgarh, India, phone number, email address"
+        url="https://firstminer.in/contact"
+        structuredData={structuredData}
+      />
       {loader ? <Loader /> : <div>
 
         <Header />
