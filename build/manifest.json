@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "FirstMiner Tech",
+  "name": "FirstMiner Technology Solutions - Web Development & Digital Marketing",
+  "description": "FirstMiner Technology Solutions Pvt. Ltd. offers comprehensive web development, mobile app development, digital marketing, SEO, and blockchain consulting services.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +21,9 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#28c3b4",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "categories": ["business", "technology", "productivity"],
+  "lang": "en"
 }
