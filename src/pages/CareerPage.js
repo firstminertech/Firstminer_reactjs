@@ -164,7 +164,7 @@ function CareerPage() {
                         <div className="container">
                             <h2 className="apply-title">Ready to Join?</h2>
                             <p className="apply-description paratext">Take the next step in your career with us.</p>
-                            <Link to="#" className="btn-cta">
+                            <Link to="/contactform" className="btn-cta">
                                 Apply Now
                             </Link>
                         </div>

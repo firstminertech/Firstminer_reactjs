@@ -33,7 +33,7 @@ const PortfolioData = () => {
               <Link to={"/portfolio?data=Web App"}>
                 <button class="color-glass-button">
                   <i class="fas fa-glass-martini-alt"></i>
-                  Our Portfolio
+                  Explore
                   
                 </button>
               </Link>
@@ -64,7 +64,7 @@ const PortfolioData = () => {
               <Link to={"/portfolio?data=Web App"}>
                 <button class="color-glass-button">
                   <i class="fas fa-glass-martini-alt"></i>
-                  Our Portfolio
+                  Explore
                   
                 </button>
               </Link>
@@ -94,7 +94,7 @@ const PortfolioData = () => {
               <Link to={"/portfolio?data=Web App"}>
                 <button class="color-glass-button">
                   <i class="fas fa-glass-martini-alt"></i>
-                  Our Portfolio
+                  Explore
                   
                 </button>
               </Link>
@@ -126,7 +126,7 @@ const PortfolioData = () => {
               <Link to={"/portfolio?data=Web App"}>
                 <button class="color-glass-button">
                   <i class="fas fa-glass-martini-alt"></i>
-                  Our Portfolio
+                  Explore
                   
                 </button>
               </Link>
@@ -152,7 +152,7 @@ const PortfolioData = () => {
               <Link to={"/portfolio?data=Video Creation"}>
                 <button class="color-glass-button">
                   <i class="fas fa-glass-martini-alt"></i>
-                  Our Portfolio
+                  Explore
                   
                 </button>
               </Link>
@@ -177,7 +177,7 @@ const PortfolioData = () => {
               <Link to={"/portfolio?data=Graphic Design"}>
                 <button class="color-glass-button">
                   <i class="fas fa-glass-martini-alt"></i>
-                  Our Portfolio
+                  Explore
                   
                 </button>
               </Link>
@@ -202,7 +202,7 @@ const PortfolioData = () => {
               <Link to={"/portfolio?data=Digital Marketing"}>
                 <button class="color-glass-button">
                   <i class="fas fa-glass-martini-alt"></i>
-                  Our Portfolio
+                  Explore
                   
                 </button>
               </Link>

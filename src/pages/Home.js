@@ -303,7 +303,7 @@ const HomePage = observer(() => {
                       <img src="assets/img/govt.webp"></img>
                     </div>
                     <h4 className="title">
-                      <a>Govt. Tender and (Material Supply)</a>
+                      <a>Govt. Tender and (Supply)</a>
                     </h4>
                     <p className="description">
                       we supply the material for structured procedure and
@@ -520,7 +520,7 @@ const HomePage = observer(() => {
               <div className="col-12">
                 <h2 className="client-title mt-4">Why to Choose US</h2>
                 <p className="text-muted">
-                As you are a technical solution partner, we bring unmatched expertise and tools to ensure your success.
+                As We are a technical solution partner, we bring unmatched expertise and tools to ensure your success.
                 </p>
               </div>
             </div>

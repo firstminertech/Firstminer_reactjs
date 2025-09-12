@@ -8,7 +8,7 @@ const TestimonialPage = () => {
       <Header />
       <section id="home" className="intro-section">
         <div className="container text-center">
-          <h1 className="heading">Testimonial</h1>
+          <h1 className="heading">Testimonials</h1>
           <p className="subheading paratext">
             We offer a wide range of professional services tailored to your
             needs. Explore what we can do for you!

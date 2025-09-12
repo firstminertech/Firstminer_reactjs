@@ -33,7 +33,7 @@ const OurClient = () => {
       {/* Introduction Section */}
       <section id="home" className="intro-section">
         <div className="container">
-          <h1 className="heading">Our Clients page</h1>
+          <h1 className="heading">Our Clients</h1>
           <p className="subheading paratext">
             At FirstMiner, we are proud to collaborate with a diverse range of clients across industries like [list industries]. Our tailored solutions help them achieve success and exceed their goals. We value long-lasting partnerships and work closely with each client to deliver impactful results.
           </p>

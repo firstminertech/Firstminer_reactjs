@@ -25,112 +25,68 @@ const OurTeams = () => {
         {
             name: "Deepak soni",
             role: " Senior Software Developer (Manager)",
-            description: "A developer",
+            description: "A skilled and innovative developer, delivering exceptional solutions, committed to quality, collaboration, and growth.",
             image: "assets/img/boy1.png",
-            socials: {
-                instagram: "#",
-                facebook: "#",
-                whatsapp: "#",
-                linkedin: "#",
-            },
+            
         },
         {
             name: "Anik Ranjan",
             role: "Software Developer",
-            description: "A developer",
+            description: "A versatile full-stack developer, adept at designing, building, and maintaining scalable, user-centric web applications.",
             image: "assets/img/boy1.png",
-            socials: {
-                instagram: "#",
-                facebook: "#",
-                whatsapp: "#",
-                linkedin: "#",
-            },
+            
         },
         {
             name: "Sudhanshu Kanwar",
             role: "Software Developer (Team Leader)",
-            description: "A developer",
+            description: "A versatile full-stack developer, adept at designing, building, and maintaining scalable, user-centric web applications.",
             image: "assets/img/boy1.png",
-            socials: {
-                instagram: "#",
-                facebook: "#",
-                whatsapp: "#",
-                linkedin: "#",
-            },
+            
         },
         {
             name: "Dharmesh Darshan",
             role: "Software Developer",
-            description: "A developer",
+            description: "A versatile full-stack developer, adept at designing, building, and maintaining scalable, user-centric web applications.",
             image: "assets/img/boy1.png",
-            socials: {
-                instagram: "#",
-                facebook: "#",
-                whatsapp: "#",
-                linkedin: "#",
-            },
+            
         },
         
         {
             name: "Shivam Gupta",
             role: "Software Developer",
-            description: "A developer",
+            description: "A creative frontend developer, specializing in crafting responsive, intuitive, and visually appealing user interfaces.",
             image: "assets/img/boy1.png",
-            socials: {
-                instagram: "#",
-                facebook: "#",
-                whatsapp: "#",
-                linkedin: "#",
-            },
+            
         },
         {
             name: "Sakshi Rathore",
             role: "App Developer",
-            description: "A developer",
+            description: "An innovative app developer, proficient in creating seamless, user-friendly, and high-performance mobile applications.",
             image: "assets/img/girl1.png",
-            socials: {
-                instagram: "#",
-                facebook: "#",
-                whatsapp: "#",
-                linkedin: "#",
-            },
+            
         },
         {
             name: "Pallavi Rathore",
             role: "Tester & Frontend Developer",
-            description: "Intern",
+            description: "A creative frontend developer, specializing in crafting responsive, intuitive, and visually appealing user interfaces.",
             image: "assets/img/girl1.png",
-            socials: {
-                instagram: "#",
-                facebook: "#",
-                whatsapp: "#",
-                linkedin: "#",
-            },
-        },
-        {
-            name: "Sandeep Bhatt",
-            role: "Designer",
-            description: "Graphic Designer",
-            image: "assets/img/boy1.png",
-            socials: {
-                instagram: "#",
-                facebook: "#",
-                whatsapp: "#",
-                linkedin: "#",
-            },
+            
         },
         {
             name: "Hritwik Ujjaini",
             role: "Senior Designer",
-            description: "Senior Designer",
+            description: "A senior designer with expertise in leading projects, creating innovative designs, and mentoring junior designers.",
             image: "assets/img/boy1.png",
-            socials: {
-                instagram: "#",
-                facebook: "#",
-                whatsapp: "#",
-                linkedin: "#",
-            },
+            
         },
+        {
+            name: "Sandeep Bhatt",
+            role: "Designer",
+            description: "A talented graphic designer, skilled in creating visually compelling designs that communicate messages effectively and creatively.",
+            image: "assets/img/boy1.png",
+            
+        },
+       
     ];
 
     const structuredData = {

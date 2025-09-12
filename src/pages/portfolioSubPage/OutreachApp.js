@@ -7,7 +7,7 @@ const OutreachApp = () => {
       <Header />
       <section id="home" className="intro-section">
         <div className="container">
-          <h1 className="heading">Welcome to Our Portfolio</h1>
+          <h1 className="heading">Our Portfolio</h1>
           <p className="subheading">
             We offer a wide range of professional services tailored to your
             needs. Explore what we can do for you!

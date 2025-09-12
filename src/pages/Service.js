@@ -214,16 +214,7 @@ function Service() {
 
         {/* Contact Section */}
         <section id="contact" className="contact-section">
-          <div className="container text-center">
-            <h2 className="contact-title">Contact Us</h2>
-            <p className="contact-info">
-              Have questions? Reach out to us at{" "}
-              <a href="mailto:firstminertech@gmail.com" className="e-mail10">
-                Info@firstminer.in
-              </a>
-
-            </p>
-          </div>
+         
         </section>
         {/* new section */}
         <section id="benefits" className="benefits-section">
