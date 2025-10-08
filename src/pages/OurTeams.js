@@ -76,7 +76,7 @@ const OurTeams = () => {
          {
             name: "Riya Singh",
             role: "Junior Developer",
-            description: "A passionate frontend developer with expertise in building adaptive, user-friendly, and aesthetically engaging interfaces..",
+            description: "A enthusiastic Frontend developer with expertise in building adaptive, user-friendly, and aesthetically engaging interfaces..",
             image: "assets/img/girl1.png",
             
         },
@@ -90,11 +90,17 @@ const OurTeams = () => {
          {
             name: "Pappu Sharma",
             role: "Junior Python & ML Developer",
-            description: "A passionate Python & ML Developer with expertise in building adaptive, user-friendly, and aesthetically engaging Model..",
+            description: "A Python & ML Developer with expertise in building adaptive, user-friendly, and aesthetically engaging Model..",
             image: "assets/img/boy1.png",
             
         },
-        
+          {
+            name: "Ankit Barai ",
+            role: "Junior Backend Developer",
+            description: "Junior Backend Developer with expertise in building adaptive, user-friendly, and aesthetically Backend ..",
+            image: "assets/img/boy1.png",
+            
+        },
 
        
        
