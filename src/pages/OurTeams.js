@@ -21,13 +21,7 @@ const OurTeams = () => {
      
     // Sample team members (you can replace these with actual data or state)
     const teamMembers = [
-        {
-            name: "Deepak soni",
-            role: " Senior Software Developer (Manager)",
-            description: "A skilled and innovative developer, delivering exceptional solutions, committed to quality, collaboration, and growth.",
-            image: "assets/img/boy1.png",
-            
-        },
+       
         {
             name: "Anik Ranjan",
             role: "Frontend Developer",
