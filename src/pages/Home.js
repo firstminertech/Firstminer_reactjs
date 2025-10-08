@@ -308,6 +308,115 @@ const HomePage = observer(() => {
   box-shadow: 0 12px 32px rgba(128,0,255,0.28), 0 8px 24px rgba(0,0,0,0.16);
   border: 2.5px solid #c084fc;
 }
+
+.horizontal-marquee-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.horizontal-marquee-track {
+  display: flex;
+  gap: 40px; /* space between boxes */
+  animation: marquee 30s linear infinite;
+  width: max-content;
+}
+
+.client-box {
+  flex: 0 0 auto;
+  min-width: 300px;
+  text-align: center;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+  /* Seamless marquee */
+.marquee {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background: #f8f9fa;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 18px 0;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-scroll 28s linear infinite;
+}
+
+/* One complete set of cards */
+.marquee-group {
+  display: flex;
+  gap: 28px;               /* spacing between cards */
+  padding-inline: 14px;    /* half the gap to hide the join seam */
+}
+
+/* Cards */
+.client-box {
+  flex: 0 0 280px;         /* fixed card width */
+  width: 280px;
+  height: 120px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 12px;
+  transition: box-shadow .2s, transform .2s, background .2s;
+}
+
+.client-box:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  transform: translateY(-6px) scale(1.04);
+  background: rgb(169, 231, 238);
+}
+
+.client-box img {
+  height: 50px;            /* uniform logo height */
+  object-fit: contain;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Keep text inside the card; clamp to 2 lines */
+.client-text {
+  text-align: center;
+  font-size: 16px;
+  color: #444;
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }  /* move by exactly one group */
+}
+
+/* Optional: pause on hover */
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+/* Optional: accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+
         `}
       </style>
       {loader ? <Loader /> : <div><Header />
@@ -527,43 +636,67 @@ const HomePage = observer(() => {
           </section>
 
           {/* #services */}
-          <h2 className="client-title"> Our Happy Clients</h2>
-          <p className="client-para">
-            At FirstMiner, we are proud to collaborate with a diverse range of
-            clients across industries like. Our tailored
-            solutions help them achieve success and exceed their goals. We value
-            long-lasting partnerships and work closely with each client to deliver
-            impactful results.
-          </p>
-          <div className="horizontal-marquee-container">
-            <div className="horizontal-marquee-track">
-              {[...Array(3)].flatMap((_, i) => [
-                <div className="client-box" key={`out-${i}`}>
-                  <img src="/assets/img/out.jpg" alt="Outreach" style={{height: 50}} />
-                  <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>A leading platform in crypto trading offering advanced features.</div>
-                </div>,
-                <div className="client-box" key={`abvv-${i}`}>
-                  <img src="/assets/img/ABVV.png" alt="College" style={{height: 50}} />
-                  <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Empowering the next generation of leaders.</div>
-                </div>,
-                <div className="client-box" key={`railway-${i}`}>
-                  <img src="/assets/img/railway.png" alt="Indian Railways" style={{height: 50}} />
-                  <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Connecting people, places, and progress.</div>
-                </div>,
-                <div className="client-box" key={`realestate-${i}`}>
-                  <img src="/assets/img/Realestatebaba-2.jpg" alt="Realestate Baba" style={{height: 50}} />
-                  <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Realestate Baba is a platform for seamless property transactions.</div>
-                </div>,
-                <div className="client-box" key={`dabbavala-${i}`}>
-                  <img src="/assets/img/unnamed.webp" alt="Dabbavala App" style={{height: 65, display: 'block', margin: '0 auto 10px auto', objectFit: 'contain'}} />
-                  <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a', textAlign: 'center'}}>
-                    Dabbavala App: Authentic tiffin service delivered to your doorstep.
-                  </div>
-                </div>
-                
-              ])}
-            </div>
-          </div>
+         <h2 className="client-title"> Our Happy Clients</h2>
+<p className="client-para">
+  At FirstMiner, we are proud to collaborate with a diverse range of
+  clients across industries like. Our tailored solutions help them achieve
+  success and exceed their goals. We value long-lasting partnerships and
+  work closely with each client to deliver impactful results.
+</p>
+
+{/* NEW: Seamless marquee (two identical groups) */}
+<div className="marquee">
+  <div className="marquee-track">
+    <div className="marquee-group">
+      {/* one full set */}
+      <div className="client-box">
+        <img src="/assets/img/out.jpg" alt="Outreach" />
+        <p className="client-text">A leading platform in crypto trading offering advanced features.</p>
+      </div>
+      <div className="client-box">
+        <img src="/assets/img/ABVV.png" alt="College" />
+        <p className="client-text">Empowering the next generation of leaders.</p>
+      </div>
+      <div className="client-box">
+        <img src="/assets/img/railway.png" alt="Indian Railways" />
+        <p className="client-text">Connecting people, places, and progress.</p>
+      </div>
+      <div className="client-box">
+        <img src="/assets/img/Realestatebaba-2.jpg" alt="Realestate Baba" />
+        <p className="client-text">Realestate Baba is a platform for seamless property transactions.</p>
+      </div>
+      <div className="client-box">
+        <img src="/assets/img/unnamed.webp" alt="Dabbavala App" />
+        <p className="client-text">Dabbavala App: Authentic tiffin service delivered to your doorstep.</p>
+      </div>
+    </div>
+
+    {/* duplicate once for seamless looping */}
+    <div className="marquee-group" aria-hidden="true">
+      <div className="client-box">
+        <img src="/assets/img/out.jpg" alt="" />
+        <p className="client-text">A leading platform in crypto trading offering advanced features.</p>
+      </div>
+      <div className="client-box">
+        <img src="/assets/img/ABVV.png" alt="" />
+        <p className="client-text">Empowering the next generation of leaders.</p>
+      </div>
+      <div className="client-box">
+        <img src="/assets/img/railway.png" alt="" />
+        <p className="client-text">Connecting people, places, and progress.</p>
+      </div>
+      <div className="client-box">
+        <img src="/assets/img/Realestatebaba-2.jpg" alt="" />
+        <p className="client-text">Realestate Baba is a platform for seamless property transactions.</p>
+      </div>
+      <div className="client-box">
+        <img src="/assets/img/unnamed.webp" alt="" />
+        <p className="client-text">Dabbavala App: Authentic tiffin service delivered to your doorstep.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 
