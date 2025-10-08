@@ -561,7 +561,7 @@ const HomePage = observer(() => {
                       <img src="assets/img/project.webp"></img>
                     </div>
                     <h4 className="title">
-                      <a>Project Explaination & Vedio Creation</a>
+                      <a>Project Explaination & video Creation</a>
                     </h4>
                     <p className="description">
                       High-quality video ads can easily generate traffic of

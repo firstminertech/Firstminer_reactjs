@@ -229,7 +229,7 @@ function Service() {
                 <AiOutlineProject className="service-icon" />
                 <h5 className="service-title">
                   
-                  Project Explaination & Vedio Creation
+                  Project Explaination & video Creation
                 </h5>
                 <p className="service-description">
                   High-quality video ads can easily generate traffic of customers.
