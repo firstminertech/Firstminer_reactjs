@@ -60,9 +60,9 @@ const OurTeams = () => {
             
         },
         {
-            name: "Hritwik Ujjaini",
-            role: "Senior Designer",
-            description: "A senior designer with expertise in leading projects, creating innovative designs, and mentoring junior designers.",
+            name: "Anupma Joshi",
+            role: "Graphic Designer",
+            description: "A Graphic Designer with expertise in leading projects, creating innovative designs, and mentoring junior designers.",
             image: "assets/img/boy1.png",
             
         },
@@ -80,6 +80,23 @@ const OurTeams = () => {
             image: "assets/img/girl1.png",
             
         },
+           {
+            name: "Novel Kathor",
+            role: "Python & ML Developer",
+            description: "A passionate Python & ML Developer with expertise in building adaptive, user-friendly, and aesthetically engaging Model..",
+            image: "assets/img/boy1.png",
+            
+        },
+         {
+            name: "Pappu Sharma",
+            role: "Junior Python & ML Developer",
+            description: "A passionate Python & ML Developer with expertise in building adaptive, user-friendly, and aesthetically engaging Model..",
+            image: "assets/img/boy1.png",
+            
+        },
+        
+
+       
        
     ];
 
