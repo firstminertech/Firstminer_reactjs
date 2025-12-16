@@ -1,3 +1,29 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Sitemap
+Sitemap: https://firstminer.in/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /admin/dashboard/
+Disallow: /admin/add-team/
+Disallow: /admin/get-teams-details/
+Disallow: /admin/contacts/
+Disallow: /admin/clients/
+Disallow: /admin/add-client/
+
+# Allow important pages
+Allow: /
+Allow: /about
+Allow: /service
+Allow: /portfolio
+Allow: /contact
+Allow: /careers
+Allow: /our-teams
+Allow: /clients
+Allow: /testimonial

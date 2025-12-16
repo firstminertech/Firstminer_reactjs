@@ -1,10 +1,33 @@
 import React from "react";
 import Header from "../component/Header";
 import Footer from "../component/Footer";
+import SEO from "../components/SEO";
 
 function AboutUs() {
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About FirstMiner Technology Solutions",
+        "description": "Learn about FirstMiner Technology Solutions Pvt. Ltd. - a leading technology company specializing in web development, mobile app development, digital marketing, and blockchain consulting services.",
+        "mainEntity": {
+            "@type": "Organization",
+            "name": "FirstMiner Technology Solutions Pvt. Ltd.",
+            "description": "We pursue relationships based on transparency, persistence, mutual trust, and integrity with our employees, customers and other business partners.",
+            "foundingDate": "2020",
+            "numberOfEmployees": "10-50",
+            "areaServed": "India"
+        }
+    };
+
     return (
         <div>
+            <SEO
+                title="About Us - FirstMiner Technology Solutions"
+                description="Learn about FirstMiner Technology Solutions Pvt. Ltd. - a leading technology company specializing in web development, mobile app development, digital marketing, and blockchain consulting services. We pursue relationships based on transparency, persistence, mutual trust, and integrity."
+                keywords="about FirstMiner, technology company, web development company, mobile app development, digital marketing agency, blockchain consulting, software development company, Bilaspur, Chhattisgarh, India"
+                url="https://firstminer.in/about"
+                structuredData={structuredData}
+            />
             {/* Header Section */}
             <Header />
             {/* Introduction Section */}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import Header from "../component/Header";
+import SEO from "../components/SEO";
 
 const OurTeams = () => {
     const [showModal, setShowModal] = useState(false);
@@ -88,8 +89,73 @@ const OurTeams = () => {
        
     ];
 
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "Our Team - FirstMiner Technology Solutions",
+        "description": "Meet our talented team of software developers, designers, and technology experts at FirstMiner Technology Solutions. We are passionate about delivering innovative solutions.",
+        "mainEntity": {
+            "@type": "Organization",
+            "name": "FirstMiner Technology Solutions Pvt. Ltd.",
+            "employee": [
+                {
+                    "@type": "Person",
+                    "name": "Deepak Soni",
+                    "jobTitle": "Senior Software Developer (Manager)"
+                },
+                {
+                    "@type": "Person",
+                    "name": "Anik Ranjan",
+                    "jobTitle": "Software Developer"
+                },
+                {
+                    "@type": "Person",
+                    "name": "Sudhanshu Kanwar",
+                    "jobTitle": "Software Developer (Team Leader)"
+                },
+                {
+                    "@type": "Person",
+                    "name": "Dharmesh Darshan",
+                    "jobTitle": "Software Developer"
+                },
+                {
+                    "@type": "Person",
+                    "name": "Shivam Gupta",
+                    "jobTitle": "Software Developer"
+                },
+                {
+                    "@type": "Person",
+                    "name": "Sakshi Rathore",
+                    "jobTitle": "App Developer"
+                },
+                {
+                    "@type": "Person",
+                    "name": "Pallavi Rathore",
+                    "jobTitle": "Tester & Frontend Developer"
+                },
+                {
+                    "@type": "Person",
+                    "name": "Sandeep Bhatt",
+                    "jobTitle": "Designer"
+                },
+                {
+                    "@type": "Person",
+                    "name": "Hritwik Ujjaini",
+                    "jobTitle": "Senior Designer"
+                }
+            ]
+        }
+    };
+
     return (
         <div>
+            <SEO
+                title="Our Team - Meet the FirstMiner Technology Solutions Team"
+                description="Meet our talented team of software developers, designers, and technology experts at FirstMiner Technology Solutions. We are passionate about delivering innovative web development, mobile app development, and digital marketing solutions."
+                keywords="our team, software developers, web developers, designers, technology team, FirstMiner team, Bilaspur team, Chhattisgarh team, software development team, digital marketing team"
+                url="https://firstminer.in/our-teams"
+                structuredData={structuredData}
+            />
             <Header />
             
             <section className="team-section">

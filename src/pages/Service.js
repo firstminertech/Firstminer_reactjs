@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
 import Loader from "../elements/loader";
+import SEO from "../components/SEO";
 
 function Service() {
   const [loader, setLoader] = useState(true);
@@ -10,8 +11,71 @@ function Service() {
     setLoader(false);
   }, 500)
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "FirstMiner Technology Solutions Services",
+    "description": "Comprehensive technology services including web development, mobile app development, digital marketing, SEO, blockchain consulting, and more.",
+    "provider": {
+      "@type": "Organization",
+      "name": "FirstMiner Technology Solutions Pvt. Ltd.",
+      "url": "https://firstminer.in"
+    },
+    "serviceType": [
+      "Web Development",
+      "Mobile App Development",
+      "Digital Marketing",
+      "SEO Services",
+      "Blockchain Consulting",
+      "Government Tender Services",
+      "Video Creation",
+      "PPC Management",
+      "Email Marketing",
+      "Affiliate Management",
+      "Conversion Rate Optimization"
+    ],
+    "areaServed": "India",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Technology Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Web Development",
+            "description": "Custom website development using modern technologies like React, Node.js, and MERN stack."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Mobile App Development",
+            "description": "Native and cross-platform mobile app development for iOS and Android."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Digital Marketing",
+            "description": "Comprehensive digital marketing strategies including SEO, PPC, social media marketing, and content marketing."
+          }
+        }
+      ]
+    }
+  };
+
   return (
     <div>
+      <SEO
+        title="Our Services - Web Development, App Development & Digital Marketing | FirstMiner Technology"
+        description="Explore our comprehensive technology services including web development, mobile app development, digital marketing, SEO, blockchain consulting, government tender services, and more. Professional solutions tailored to your business needs."
+        keywords="web development services, mobile app development, digital marketing services, SEO services, blockchain consulting, government tender, video creation, PPC management, email marketing, affiliate management, conversion optimization, Bilaspur, Chhattisgarh, India"
+        url="https://firstminer.in/service"
+        structuredData={structuredData}
+      />
       {loader ? <Loader /> : <div>
         <Header />
 
@@ -70,7 +134,7 @@ function Service() {
               {/* Service 5 */}
               <div className="service-card">
                 <h5 className="service-title">
-                  Project Explaination & Vedio Creation
+                  Project Explaination & Video Creation
                 </h5>
                 <p className="service-description">
                   High-quality video ads can easily generate traffic of customers.

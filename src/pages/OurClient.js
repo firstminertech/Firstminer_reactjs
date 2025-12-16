@@ -3,10 +3,30 @@ import Testimonials from '../elements/Testimonials';
 import Header from '../component/Header';
 import ClientPage from '../elements/ClientPage';
 import Footer from '../component/Footer';
+import SEO from '../components/SEO';
 
 const OurClient = () => {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "Our Clients - FirstMiner Technology Solutions",
+    "description": "Discover our diverse range of clients across various industries. FirstMiner Technology Solutions has helped numerous businesses achieve success through our tailored web development, mobile app development, and digital marketing solutions.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "FirstMiner Technology Solutions Pvt. Ltd.",
+      "description": "We are proud to collaborate with a diverse range of clients across industries. Our tailored solutions help them achieve success and exceed their goals."
+    }
+  };
+
   return (
     <div>
+      <SEO
+        title="Our Clients - Success Stories | FirstMiner Technology Solutions"
+        description="Discover our diverse range of clients across various industries. FirstMiner Technology Solutions has helped numerous businesses achieve success through our tailored web development, mobile app development, and digital marketing solutions."
+        keywords="our clients, client success stories, web development clients, mobile app development clients, digital marketing clients, technology solutions clients, FirstMiner clients, Bilaspur clients, Chhattisgarh clients"
+        url="https://firstminer.in/clients"
+        structuredData={structuredData}
+      />
       {/* Header Section */}
       <Header />
 
