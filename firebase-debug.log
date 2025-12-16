@@ -1,0 +1,42 @@
+[debug] [2025-12-16T10:34:43.800Z] ----------------------------------------------------------------------
+[debug] [2025-12-16T10:34:43.806Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2025-12-16T10:34:43.807Z] CLI Version:   14.20.0
+[debug] [2025-12-16T10:34:43.807Z] Platform:      win32
+[debug] [2025-12-16T10:34:43.808Z] Node Version:  v22.13.1
+[debug] [2025-12-16T10:34:43.809Z] Time:          Tue Dec 16 2025 16:04:43 GMT+0530 (India Standard Time)
+[debug] [2025-12-16T10:34:43.809Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-12-16T10:34:43.814Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2025-12-16T10:34:44.421Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-16T10:34:44.422Z] > authorizing via signed-in user (anikranjan312@gmail.com)
+[debug] [2025-12-16T10:34:44.423Z] [iam] checking project firstminer-c1389 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-12-16T10:34:44.424Z] Checked if tokens are valid: false, expires at: 1762436310126
+[debug] [2025-12-16T10:34:44.425Z] Checked if tokens are valid: false, expires at: 1762436310126
+[debug] [2025-12-16T10:34:44.425Z] > refreshing access token with scopes: []
+[debug] [2025-12-16T10:34:44.427Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-12-16T10:34:44.427Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-16T10:34:51.051Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-12-16T10:34:51.052Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-16T10:34:51.121Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/firstminer-c1389:testIamPermissions [none]
+[debug] [2025-12-16T10:34:51.121Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/firstminer-c1389:testIamPermissions x-goog-quota-user=projects/firstminer-c1389
+[debug] [2025-12-16T10:34:51.121Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/firstminer-c1389:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-12-16T10:34:53.121Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/firstminer-c1389:testIamPermissions 200
+[debug] [2025-12-16T10:34:53.121Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/firstminer-c1389:testIamPermissions {}
+[debug] [2025-12-16T10:34:53.122Z] [iam] error while checking permissions, command may fail: Authorization failed. This account is missing the following required permissions on project firstminer-c1389:
+
+  firebase.projects.get
+  firebasehosting.sites.update
+[debug] [2025-12-16T10:34:53.123Z] Checked if tokens are valid: true, expires at: 1765884890052
+[debug] [2025-12-16T10:34:53.123Z] Checked if tokens are valid: true, expires at: 1765884890052
+[debug] [2025-12-16T10:34:53.123Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/firstminer-c1389 [none]
+[debug] [2025-12-16T10:34:54.361Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-12-16T10:34:54.361Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2025-12-16T10:34:54.633Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/firstminer-c1389 403
+[debug] [2025-12-16T10:34:54.633Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/firstminer-c1389 {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2025-12-16T10:34:54.635Z] Request to https://firebase.googleapis.com/v1beta1/projects/firstminer-c1389 had HTTP Error: 403, The caller does not have permission
+[debug] [2025-12-16T10:34:54.979Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/firstminer-c1389 had HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\anikr\AppData\Roaming\nvm\v22.13.1\node_modules\firebase-tools\lib\responseToError.js:53:12)
+    at RetryOperation._fn (C:\Users\anikr\AppData\Roaming\nvm\v22.13.1\node_modules\firebase-tools\lib\apiv2.js:312:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[error] 
+[error] Error: Failed to get Firebase project firstminer-c1389. Please make sure the project exists and your account has permission to access it.
