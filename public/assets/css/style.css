@@ -3463,3 +3463,121 @@ p {
 {
   width: 48px !important;
 }
+
+@keyframes rotatePop {
+  0% { transform: scale(1) rotate(0deg); }
+  60% { transform: scale(1.08) rotate(-2deg); }
+  100% { transform: scale(1.04) rotate(-2deg); }
+}
+.box {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: background 0.4s cubic-bezier(.4,2,.6,1),
+              color 0.4s cubic-bezier(.4,2,.6,1),
+              transform 0.3s cubic-bezier(.4,2,.6,1),
+              box-shadow 0.3s cubic-bezier(.4,2,.6,1);
+}
+.box:hover {
+  animation: rotatePop 0.5s;
+  transform: scale(1.04) rotate(-2deg);
+  box-shadow: 0 16px 40px rgba(41,72,255,0.18);
+  background: #db9898;
+  color: #181c2f;
+}
+.box:hover h4,
+.box:hover p,
+.box:hover .title,
+.box:hover .description {
+  color: #181c2f !important;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.blink-heading {
+  animation: blink 0.5s linear infinite;
+}
+
+.vertical-marquee-container {
+  overflow: hidden;
+  height: 350px;
+  width: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.vertical-marquee-track {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  animation: vertical-marquee 3s linear infinite;
+}
+
+@keyframes vertical-marquee {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.client-box {
+  background: #fff;
+  border-radius: 30px;
+  box-shadow: 0 8px 32px 0 rgba(80, 0, 255, 0.08), 0 1.5px 6px 0 rgba(80, 0, 255, 0.10);
+  padding: 40px 30px;
+  margin: 0 auto;
+  width: 400px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.client-box img {
+  max-width: 120px;
+  margin-bottom: 20px;
+}
+
+.horizontal-marquee-container {
+  overflow: hidden;
+  width: 100vw;
+  height: 350px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.horizontal-marquee-track {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  animation: horizontal-marquee 16s linear infinite;
+  align-items: center;
+}
+
+@keyframes horizontal-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.client-box {
+  background: #fff;
+  border-radius: 30px;
+  box-shadow: 0 8px 32px 0 rgba(80, 0, 255, 0.08), 0 1.5px 6px 0 rgba(80, 0, 255, 0.10);
+  padding: 40px 30px;
+  margin: 0 16px;
+  width: 320px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.3s, transform 0.3s;
+  box-sizing: border-box;
+}
+.client-box img {
+  max-width: 100%;
+  height: 120px;
+  margin-bottom: 20px;
+  display: block;
+}

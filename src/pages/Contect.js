@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button, Alert, Row, Col } from "react-bootstrap";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Header from "../component/Header";
 import websiteStore from "../store/WebsiteStore";
 import Loader from "../elements/loader";
+<<<<<<< HEAD
 import SEO from "../components/SEO";
+=======
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+>>>>>>> 6fa269bc5c1cd977400636528fd0064c1ffdf740
 
 const ContactPage = () => {
   const [isSuccess, setIsSuccess] = useState(false);
@@ -14,6 +20,10 @@ const ContactPage = () => {
   setTimeout(() => {
     setLoader(false);
   }, 500)
+
+  useEffect(() => {
+    AOS.init({ duration: 900, once: true });
+  }, []);
 
   // Function to handle form submission using mailto
   const handleSubmit = (values, { resetForm }) => {
@@ -74,8 +84,72 @@ const ContactPage = () => {
       {loader ? <Loader /> : <div>
 
         <Header />
+        {/* Top Contact Image - now above the heading */}
+        <div className="contact-top-image-wrapper" style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '32px auto 0 auto' }}>
+          <img 
+            src="/assets/img/contactus.jpg" 
+            alt="Contact Us Banner" 
+            className="contact-top-image"
+            style={{ width: '100vw', maxWidth: '1500px', height: '220px', objectFit: 'cover', borderRadius: '15px', boxShadow: '0 4px 24px rgba(0,0,0,0.10)' }}
+          />
+        </div>
         <section id="contact" className="wow fadeInUp py-5 ">
           <div className="container">
+            <style>{`
+              .contact-info {
+                display: flex;
+                justify-content: center;
+                // gap: 32px;
+                margin-bottom: 32px;
+                flex-wrap: wrap;
+              }
+              .contact-card {
+                flex: 1 1 280px;
+                max-width: 340px;
+                min-width: 260px;
+                min-height: 180px;
+                background: linear-gradient(135deg, #f8faff 60%, #e3f0ff 100%);
+                border-radius: 22px;
+                box-shadow: 0 4px 16px rgba(31,38,135,0.08);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                margin: 0;
+                transition: box-shadow 0.25s, transform 0.25s, background 0.25s;
+                cursor: pointer;
+                position: relative;
+              }
+              .contact-card:hover {
+                transform: scale(1.05);
+                box-shadow: 0 12px 32px rgba(104,141,215,0.18);
+                background: #rgba(104,141,215,0.18;
+                color: #111;
+              }
+              .contact-title {
+                font-weight: 700;
+                font-size: 1.2rem;
+                color: #1de9b6;
+                display: flex;
+                align-items: center;
+                // gap: 8px;
+                margin-bottom: 10px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+              }
+              .contact-icon {
+                font-size: 1.3em;
+                color: #1de9b6;
+                vertical-align: middle;
+              }
+              .contact-para10, .contact-card p, .contact-card address {
+                color: #222;
+                font-size: 1.05rem;
+                text-align: center;
+                margin-bottom: 0;
+              }
+            `}</style>
             <>
               <div className="section-header text-center mb-4">
                 <h2>Contact Us</h2>
@@ -85,50 +159,70 @@ const ContactPage = () => {
               </div>
             </>
 
-            <div className="row contact-info mb-5">
-              {/* Contact Info Section */}
-              <div className="col-md-4 mb-3">
-                <div className="contact-address">
-                  <div className="d-flex justify-content-center">
-                    <h3>Address</h3>
-                    <i class="fa-solid fa-location-dot fs-5 ms-2 "></i>
+            {/* Contact Info Column - Vertical Arrangement, Left Aligned */}
+            <div
+              style={{
+                background: 'linear-gradient(135deg, #f8faff 60%, #e3f0ff 100%)',
+                borderRadius: '18px',
+                boxShadow: '0 4px 16px rgba(31,38,135,0.08)',
+                padding: '18px 16px',
+                marginBottom: '32px',
+                maxWidth: '400px',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}
+            >
+              <div
+                className="contact-info-col d-flex flex-column justify-content-start align-items-start mb-5"
+                style={{
+                  gap: 0,
+                  marginBottom: 0,
+                  padding: 0,
+                  width: '100%',
+                  maxWidth: '600px',
+                }}
+              >
+                <div style={{width: '100%', marginBottom: '2px'}} data-aos="fade-up">
+                  <div style={{fontWeight: 700, fontSize: '1.1rem', color: '#1de9b6', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '2px', display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'flex-start'}}>
+                    Address <FaMapMarkerAlt style={{fontSize: '1.2em', color: '#1de9b6'}} />
                   </div>
-                  <address className="contact-para10">
-                    Firstminer Technology Solutions Pvt. Ltd, 3rd floor RK
-                    Complex,, Jagdamba colony,Seepat Road Bilaspur 495001 (CG)
+                  <address style={{color: '#222', fontSize: '1rem', marginBottom: 0, lineHeight: 1.5, textAlign: 'left'}}>
+                    Firstminer Technology Solutions Pvt. Ltd,<br />
+                    3rd floor RK Complex, Jagdamba colony,<br />
+                    Seepat Road Bilaspur 495001 (CG)
                   </address>
                 </div>
-              </div>
-              <div className="col-md-4 mb-3">
-                <div className="contact-phone">
-                  <div className="d-flex justify-content-center">
-                    <h3>Phone Number</h3>
-                    <i class="fa-solid fa-phone fs-5 ms-2"></i>
+                <div style={{width: '100%', marginBottom: '2px'}} data-aos="fade-up" data-aos-delay="100">
+                  <div style={{fontWeight: 700, fontSize: '1.1rem', color: '#1de9b6', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '2px', display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'flex-start'}}>
+                    Phone <FaPhoneAlt style={{fontSize: '1.2em', color: '#1de9b6'}} />
                   </div>
-
-                  <p>
-                    <a href="tel:07752358727">07752358727</a>
+                  <p style={{color: '#222', fontSize: '1rem', marginBottom: 0, textAlign: 'left'}}>
+                    <a href="tel:07752358727" style={{color: '#222', textDecoration: 'none'}}>07752358727</a>
                   </p>
                 </div>
-              </div>
-              <div className="col-md-4 mb-3">
-                <div className="contact-email">
-                  <div className="d-flex justify-content-center">
-                    <h3>Email</h3>
-                    <i class="fa-solid fa-envelope fs-5 ms-2"></i>
+                <div style={{width: '100%', marginBottom: 0}} data-aos="fade-up" data-aos-delay="200">
+                  <div style={{fontWeight: 700, fontSize: '1.1rem', color: '#1de9b6', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '2px', display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'flex-start'}}>
+                    Email <FaEnvelope style={{fontSize: '1.2em', color: '#1de9b6'}} />
                   </div>
-                  <p>
-                    <a href="mailto:firstminertech@gmail.com">
-                      {" "}
+                  <p style={{color: '#222', fontSize: '1rem', marginBottom: 0, textAlign: 'left'}}>
+                    <a href="mailto:firstminertech@gmail.com" style={{color: '#222', textDecoration: 'none'}}>
                       Info@firstminer.in
                     </a>
                   </p>
+                </div>
+                {/* Office Hours Section */}
+                <div style={{width: '100%', marginTop: '14px', borderTop: '1px solid #e3f0ff', paddingTop: '10px'}}>
+                  <div style={{fontWeight: 600, fontSize: '1.05rem', color: '#1de9b6', marginBottom: '2px', textTransform: 'uppercase', letterSpacing: '0.5px'}}>Office Hours:</div>
+                  <div style={{color: '#222', fontSize: '0.98rem', lineHeight: 1.4}}>
+                    Monday–Saturday: 10:00 AM–6:00 PM (IST)<br />
+                    Sunday: Closed
+                  </div>
                 </div>
               </div>
             </div>
 
             <div className="contact-container">
-              <div className="col-md-6">
+              <div className="col-md-6" data-aos="fade-up">
                 <div className="form-container">
                   <h2 className="form-title">For Inquery</h2>
                   {isSuccess && (
@@ -316,7 +410,7 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              <div className="col-md-6">
+              <div className="col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <div id="google-map" className="map-container">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3696.730331263791!2d82.15783957474363!3d22.098113350194648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a280b0e9ca001ed%3A0x86b6263922c5064d!2sE-DigitalBaba!5e0!3m2!1sen!2sin!4v1734764627163!5m2!1sen!2sin"

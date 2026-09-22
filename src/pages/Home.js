@@ -15,11 +15,17 @@ import { Form, Button, Alert, Row, Col, Modal } from "react-bootstrap";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Loader from "../elements/loader";
+<<<<<<< HEAD
 import SEO from "../components/SEO";
+=======
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+>>>>>>> 6fa269bc5c1cd977400636528fd0064c1ffdf740
 
 const HomePage = observer(() => {
   useEffect(() => {
     websiteStore?.getTeams();
+    AOS.init({ duration: 1000, once: true });
   }, []);
   const [isSuccess, setIsSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -54,6 +60,10 @@ const HomePage = observer(() => {
   useEffect(() => {
     setShow(true); // Trigger the animation when the component mounts
   }, []);
+  useEffect(() => {
+    websiteStore?.getTeams();
+    AOS.init({ duration: 1000, once: true });
+  }, []);
 
   // Transition for the entire content
   const transitions = useTransition(show, {
@@ -72,6 +82,13 @@ const HomePage = observer(() => {
     delay: 300, // Slight delay for image
   });
 
+  // Animation for about section content
+  const aboutContentSpring = useSpring({
+    from: { opacity: 0, transform: 'translateY(40px)' },
+    to: { opacity: 1, transform: 'translateY(0)' },
+    config: { tension: 180, friction: 16 },
+    delay: 300,
+  });
 
   // Structured data for SEO
   const structuredData = {
@@ -125,24 +142,230 @@ const HomePage = observer(() => {
         structuredData={structuredData}
       />
       <style>
-        {
-          `
-    .header-relative{
-    position:absolute !important;
+        {`
+    .header-relative {
+      position:absolute !important;
     }
     .header-relative .nav-menu a {
-    color: white ;
+      color: white;
     }
 
-    #header.fixed .nav-menu a{
-    color: black !important;
+    #header.fixed .nav-menu a {
+      color: black !important;
     }
-    `
-        }
+
+    /* blink animation */
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%      { opacity: 0; }
+    }
+
+    /* apply blink to your Firstminer title */
+    .Firstminer-title {
+      animation: blink 1.5s linear infinite;
+    }
+       .img-wrapper {
+    display: inline-block;
+    border: 2px solid #ddd;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  @keyframes float {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+  }
+  .floating-img {
+    display: block;
+    animation: float 4s ease-in-out infinite;
+  }
+     @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0; }
+  }
+
+  /* blink the services heading */
+  #services .section-header h2 {
+    animation: blink 1.5s linear infinite;
+  }
+
+  /* --- Improved Technology Card Styles --- */
+ .card-technology {
+  width: 240px;
+  height: 160px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 24px 12px;
+  transition: box-shadow 0.2s, transform 0.2s;
+  border: none;
+}
+
+.card-technology:hover {
+  box-shadow: 0 12px 32px rgba(0,0,0,0.16);
+  transform: translateY(-6px) scale(1.04);
+}
+
+.card-image {
+  max-width: 140px;
+  max-height: 90px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.container {
+  max-width: 1400px;
+}
+
+.d-flex.justify-content-around.flex-wrap.mt-4 {
+  justify-content: center !important;
+  gap: 0 24px;
+}
+
+/* Add text-shadow to headings for a soft effect */
+.client-title, .section-header h2 {
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+/* --- Marquee Section Improvements --- */
+.horizontal-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  background: #f8f9fa;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 18px 0;
+  margin: 30px 0 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.horizontal-marquee-track {
+  display: flex;
+  align-items: center;
+  animation: marquee 22s linear infinite;
+  gap: 32px;
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.client-box {
+  width: 260px;
+  min-width: 260px;
+  height: 120px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 12px;
+  margin: 0 8px;
+  transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
+}
+.client-box:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  transform: translateY(-8px) scale(1.06);
+  background:rgb(169, 231, 238);
+}
+.client-box img {
+  max-height: 50px;
+  margin-bottom: 10px;
+  object-fit: contain;
+}
+.client-box div {
+  text-align: center;
+  font-size: 16px;
+  color: #444;
+  font-weight: 500;
+}
+
+/* Flip card styles for about section */
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 350px;
+  perspective: 1000px;
+  border-radius: 8px;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.7s cubic-bezier(0.4,0.2,0.2,1);
+  transform-style: preserve-3d;
+  border-radius: 8px;
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.flip-card-front {
+  z-index: 2;
+}
+.flip-card-back {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+.icon img, .service-icon, .benefit-icon {
+  transition: transform 0.3s cubic-bezier(.25,1.5,.5,1.1), box-shadow 0.3s, filter 0.3s;
+  will-change: transform, box-shadow, filter;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  animation: iconFadeInUp 0.8s cubic-bezier(.25,1.5,.5,1.1) forwards;
+}
+.icon img:hover, .service-icon:hover, .benefit-icon:hover {
+  transform: scale(1.18) translateY(-6px) rotate(-6deg);
+  box-shadow: 0 8px 24px rgba(25, 118, 210, 0.18);
+  filter: brightness(1.08) saturate(1.12);
+}
+@keyframes iconFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.card-technology.shadow {
+  box-shadow: 0 6px 24px rgba(128,0,255,0.18), 0 2px 8px rgba(0,0,0,0.10);
+  border: 2px solid #a259ff;
+}
+.card-technology.shadow:hover {
+  box-shadow: 0 12px 32px rgba(128,0,255,0.28), 0 8px 24px rgba(0,0,0,0.16);
+  border: 2.5px solid #c084fc;
+}
+        `}
       </style>
       {loader ? <Loader /> : <div><Header />
 
-        <section id="intro">
+        <section id="intro" data-aos="fade-up">
           {/* Background Video */}
           <div className="container">
             <video autoPlay muted loop id="intro-video">
@@ -159,24 +382,23 @@ const HomePage = observer(() => {
         {/* #intro */}
 
         <main id="main">
-          <section id="about" className="wow fadeInUp">
+          <section id="about" className="wow fadeInUp" data-aos="fade-up">
             <div className="container">
               <div className="row">
                 {/* Animated Image */}
                 <div className="col-lg-6 about-img">
-                  {imageTransition((style, item) =>
-                    item ? (
-                      <animated.img
-                        src="assets/img/about-img.jpg"
-                        alt=""
-                        style={style}
-                      />
-                    ) : null
-                  )}
+                  <img
+                    src="assets/img/about-img.jpg"
+                    alt="About Firstminer"
+                    className="floating-img"
+                    style={{ width: '100%', height: 'auto' }}
+                  />
                 </div>
+
 
                 {/* Animated Content */}
                 <div className="col-lg-6 content">
+<<<<<<< HEAD
                   {transitions((style, item) =>
                     item ? (
                       <>
@@ -210,16 +432,48 @@ const HomePage = observer(() => {
                       </>
                     ) : null
                   )}
+=======
+                  {/* Animated About Content */}
+                  <animated.div style={aboutContentSpring}>
+                    <h2 className="Firstminer-title">
+                      Firstminer Technology Solutions Pvt. Ltd .
+                    </h2>
+                    <ul>
+                      <li className="mt-5">
+                        Our team of specialists consistently delivers
+                        outstanding results combining creative ideas with our
+                        vast experience. We can help you build a sustainable,
+                        meaningful relationship with your clients by engaging
+                        them with your brand using social media.
+                      </li>
+                    </ul>
+                    <ul>
+                      <li>
+                        <i className="ion-android-checkmark-circle" /> Our
+                        team develops effective content strategies for forward
+                        thinking companies. We have a proven track record in
+                        increasing searnch engine rankings.
+                      </li>
+                      <li>
+                        <i className="ion-android-checkmark-circle" />
+                        Our digital marketing, Mobile Application Development,
+                        Website Development work speaks for itself. We deliver
+                        an outstanding service custom-tailored to each and
+                        every one of our clients.
+                      </li>
+                    </ul>
+                  </animated.div>
+>>>>>>> 6fa269bc5c1cd977400636528fd0064c1ffdf740
                 </div>
               </div>
             </div>
           </section>
           {/* #about */}
 
-          <section id="services">
-            <div className="container">
-              <div className="section-header">
-                <h2>Services</h2>
+         <section id="services" data-aos="fade-up">
+  <div className="container">
+    <div className="section-header" data-aos="fade-up">
+      <h2 className="blink-heading">Services</h2>
 
                 <p className="servies-para">
                   Firstminer Tech specializes in creating custom websites and
@@ -230,7 +484,7 @@ const HomePage = observer(() => {
                 </p>
               </div>
               <div className="row">
-                <div className="col-lg-6">
+                <div className="col-lg-6" data-aos="zoom-in">
                   <div className="box wow fadeInLeft">
                     <div className="icon">
                       {/* <i className="fa fa-bar-chart" /> */}
@@ -247,7 +501,7 @@ const HomePage = observer(() => {
                   </div>
                 </div>
 
-                <div className="col-lg-6">
+                <div className="col-lg-6" data-aos="zoom-in">
                   <div className="box wow fadeInLeft" data-wow-delay="0.2s">
                     <div className="icon">
                       <img src="assets/img/appdevelopment.webp"></img>
@@ -263,7 +517,7 @@ const HomePage = observer(() => {
                     </p>
                   </div>
                 </div>
-                <div className="col-lg-6">
+                <div className="col-lg-6" data-aos="zoom-in">
                   <div className="box wow fadeInLeft" data-wow-delay="0.2s">
                     <div className="icon">
                       <img src="assets/img/web.jpg"></img>
@@ -281,7 +535,7 @@ const HomePage = observer(() => {
                   </div>
                 </div>
 
-                <div className="col-lg-6">
+                <div className="col-lg-6" data-aos="zoom-in">
                   <div className="box wow fadeInLeft" data-wow-delay="0.2s">
                     <div className="icon">
                       <img src="assets/img/project.webp"></img>
@@ -297,7 +551,7 @@ const HomePage = observer(() => {
                     </p>
                   </div>
                 </div>
-                <div className="col-lg-6">
+                <div className="col-lg-6" data-aos="zoom-in">
                   <div className="box wow fadeInLeft" data-wow-delay="0.2s">
                     <div className="icon">
                       <img src="assets/img/govt.webp"></img>
@@ -312,7 +566,7 @@ const HomePage = observer(() => {
                     </p>
                   </div>
                 </div>
-                <div className="col-lg-6">
+                <div className="col-lg-6" data-aos="zoom-in">
                   <div className="box wow fadeInLeft" data-wow-delay="0.2s">
                     <div className="icon">
                       <img src="assets/img/v.jpg"></img>
@@ -321,12 +575,12 @@ const HomePage = observer(() => {
                       <a>Commercial Video Creation</a>
                     </h4>
                     <p className="description">
-                    Understand how your videos are performing, gain valuable insights into their reach, and analyze the kind of target audience viewing, engaging, and interacting with them.
+                      Understand how your videos are performing, gain valuable insights into their reach, and analyze the kind of target audience viewing, engaging, and interacting with them.
                     </p>
                   </div>
                 </div>
 
-                <div className="col-lg-6">
+                <div className="col-lg-6" data-aos="zoom-in">
                   <div className="box wow fadeInLeft" data-wow-delay="0.2s">
                     <div className="icon">
                       <img src="assets/img/blockchain.webp"></img>
@@ -342,10 +596,10 @@ const HomePage = observer(() => {
                     </p>
                   </div>
                 </div>
-                <div className="col-lg-6">
+                <div className="col-lg-6" data-aos="zoom-in">
                   <div className="box wow fadeInLeft" data-wow-delay="0.2s">
                     <div className="icon">
-                      <img src="assets/img/social1.png" width={50}/>
+                      <img src="assets/img/social1.png" width={50} />
                     </div>
                     <h4 className="title">
                       <a>Digital Marketing</a>
@@ -370,7 +624,43 @@ const HomePage = observer(() => {
             long-lasting partnerships and work closely with each client to deliver
             impactful results.
           </p>
-          <ClientPage />
+          <div className="horizontal-marquee-container">
+            <div className="horizontal-marquee-track">
+              <div className="client-box"> {/* Box 1 */}
+                <img src="/assets/img/out.jpg" alt="Outreach" style={{height: 50}} />
+                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>A leading platform in crypto trading offering advanced features.</div>
+              </div>
+              <div className="client-box"> {/* Box 2 */}
+                <img src="/assets/img/ABVV.png" alt="College" style={{height: 50}} />
+                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Empowering the next generation of leaders.</div>
+              </div>
+              <div className="client-box"> {/* Box 3 */}
+                <img src="/assets/img/railway.png" alt="Indian Railways" style={{height: 50}} />
+                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Connecting people, places, and progress.</div>
+              </div>
+              <div className="client-box"> {/* Box 4 */}
+                <img src="/assets/img/Realestatebaba-2.jpg" alt="Realestate Baba" style={{height: 50}} />
+                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Realestate Baba is a platform for seamless property transactions.</div>
+              </div>
+              {/* Duplicate for seamless loop */}
+              <div className="client-box"> {/* Box 1 */}
+                <img src="/assets/img/out.jpg" alt="Outreach" style={{height: 50}} />
+                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>A leading platform in crypto trading offering advanced features.</div>
+              </div>
+              <div className="client-box"> {/* Box 2 */}
+                <img src="/assets/img/ABVV.png" alt="College" style={{height: 50}} />
+                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Empowering the next generation of leaders.</div>
+              </div>
+              <div className="client-box"> {/* Box 3 */}
+                <img src="/assets/img/railway.png" alt="Indian Railways" style={{height: 50}} />
+                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Connecting people, places, and progress.</div>
+              </div>
+              <div className="client-box"> {/* Box 4 */}
+                <img src="/assets/img/Realestatebaba-2.jpg" alt="Realestate Baba" style={{height: 50}} />
+                <div className="mt-3 mb-2" style={{fontWeight: 500, fontSize: 18, color: '#5a5a5a'}}>Realestate Baba is a platform for seamless property transactions.</div>
+              </div>
+            </div>
+          </div>
 
 
 
@@ -379,155 +669,68 @@ const HomePage = observer(() => {
             <p className="client-para">
               At FirstMinerTech, we leverage cutting-edge technologies to deliver high-quality, scalable,
               and efficient solutions. Our technology stack is carefully chosen to meet the diverse needs of modern
-              businesses and ensure robust performance. Here’s what powers our innovation:
+              businesses and ensure robust performance. Here's what powers our innovation:
             </p>
           </div>
           <div className="container">
             <div className="d-flex justify-content-around flex-wrap mt-4">
-              <div className="card-container d-flex justify-content-center">
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/mern.jpg"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-
-                </div>
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/mern.jpg" alt="Card Image" className="card-image" />
               </div>
-              <div className="card-container">
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/django.png"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-
-                </div>
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/django.png" alt="Card Image" className="card-image" />
               </div>
-              <div className="card-container">
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/react.jpg"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-
-                </div>
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/react.jpg" alt="Card Image" className="card-image" />
               </div>
-              <div className="card-container">
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/Flutter.jpg"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-
-                </div>
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/Flutter.jpg" alt="Card Image" className="card-image" />
               </div>
             </div>
             <div className="d-flex justify-content-around flex-wrap mt-4">
-              <div className="card-container">
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/code.png"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-
-                </div>
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/code.png" alt="Card Image" className="card-image" />
               </div>
-              <div className="card-container">
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/ios.png"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-
-                </div>
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/ios.png" alt="Card Image" className="card-image" />
               </div>
-              <div className="card-container">
-
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/Azure.png"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-
-                </div>
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/Azure.png" alt="Card Image" className="card-image" />
               </div>
-              <div className="card-container">
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/net.png"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-                </div>
-
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/net.png" alt="Card Image" className="card-image" />
               </div>
-
             </div>
             <div className="d-flex justify-content-around flex-wrap mt-4">
-              <div className="card-container d-flex justify-content-center">
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/android.png"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-
-                </div>
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/android.png" alt="Card Image" className="card-image" />
               </div>
-              <div className="card-container">
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/java.png"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-
-                </div>
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/java.png" alt="Card Image" className="card-image" />
               </div>
-              <div className="card-container">
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/next.png"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-
-                </div>
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/next.png" alt="Card Image" className="card-image" />
               </div>
-              <div className="card-container">
-                <div className="card-technology shadow">
-                  <img
-                    src="assets/img/Laravel.png"
-                    alt="Card Image"
-                    className="card-image"
-                  />
-
-                </div>
+              <div className="card-technology shadow" data-aos="zoom-in">
+                <img src="assets/img/Laravel.png" alt="Card Image" className="card-image" />
               </div>
-
             </div>
           </div>
 
 
-          <div className="container py-5">
+          <div className="container py-5" data-aos="fade-up">
             <div className="row justify-content-center text-center">
               <div className="col-12">
                 <h2 className="client-title mt-4">Why to Choose US</h2>
                 <p className="text-muted">
-                As We are a technical solution partner, we bring unmatched expertise and tools to ensure your success.
+                  As We are a technical solution partner, we bring unmatched expertise and tools to ensure your success.
                 </p>
               </div>
             </div>
 
             <div className="row align-items-center mt-4">
               {/* Side Image */}
-              <div className="col-12 col-md-5 text-center mb-4 mb-md-0">
+              <div className="col-12 col-md-5 text-center mb-4 mb-md-0" data-aos="zoom-in">
                 <img
                   src="assets/img/chooseus1.jpg"
                   alt="Professional"
@@ -538,7 +741,7 @@ const HomePage = observer(() => {
               {/* Features Section */}
               <div className="col-12 col-md-7">
                 <div className="row">
-                  <div className="col-12 col-md-6 mb-4">
+                  <div className="col-12 col-md-6 mb-4" data-aos="zoom-in">
                     <div className="feature-card" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                       <img
                         src="assets/img/checkbox.png"
@@ -552,7 +755,7 @@ const HomePage = observer(() => {
                     </div>
                   </div>
 
-                  <div className="col-12 col-md-6 mb-4">
+                  <div className="col-12 col-md-6 mb-4" data-aos="zoom-in">
                     <div className="feature-card" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                       <img
                         src="assets/img/checkbox.png"
@@ -566,7 +769,7 @@ const HomePage = observer(() => {
                     </div>
                   </div>
 
-                  <div className="col-12 col-md-6 mb-4">
+                  <div className="col-12 col-md-6 mb-4" data-aos="zoom-in">
 
                     <div className="feature-card" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                       <img
@@ -581,7 +784,7 @@ const HomePage = observer(() => {
                     </div>
                   </div>
 
-                  <div className="col-12 col-md-6 mb-4">
+                  <div className="col-12 col-md-6 mb-4" data-aos="zoom-in">
                     <div className="feature-card" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                       <img
                         src="assets/img/checkbox.png"
@@ -601,7 +804,7 @@ const HomePage = observer(() => {
             {/* Contact Information */}
 
           </div>
-          <section id="call-to-action" className="call-to-action-section">
+          <section id="call-to-action" className="call-to-action-section" data-aos="fade-up">
             <div className="container">
               <div className="row align-items-center">
                 <div className="col-lg-9 text-center text-lg-left">
@@ -844,7 +1047,7 @@ const HomePage = observer(() => {
                        user experiences. With a passion for both Android and
                        iOS development, she focuses on crafting intuitive and
                        high-performing apps that cater to diverse user needs.
-                       Sakshi’s attention to detail and commitment to improving
+                       Sakshi's attention to detail and commitment to improving
                        app functionality make her a reliable contributor in the
                        tech world.
                      </p>
