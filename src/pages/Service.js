@@ -2,14 +2,11 @@ import React, { useEffect, useState } from "react";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
 import Loader from "../elements/loader";
-<<<<<<< HEAD
 import SEO from "../components/SEO";
-=======
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { FaLaptopCode, FaMobileAlt, FaSearch, FaGavel, FaVideo, FaChartBar, FaCube, FaMousePointer, FaLightbulb, FaEnvelope, FaUserFriends, FaSync } from 'react-icons/fa';
 import { AiOutlineProject } from 'react-icons/ai';
->>>>>>> 6fa269bc5c1cd977400636528fd0064c1ffdf740
 
 function Service() {
   const [loader, setLoader] = useState(true);
@@ -295,12 +292,7 @@ function Service() {
               <div className="service-card tilt-card" data-aos="fade-up" data-aos-delay="100">
                 <AiOutlineProject className="service-icon" />
                 <h5 className="service-title">
-<<<<<<< HEAD
                   Project Explaination & Video Creation
-=======
-                  
-                  Project Explaination & Vedio Creation
->>>>>>> 6fa269bc5c1cd977400636528fd0064c1ffdf740
                 </h5>
                 <p className="service-description">
                   High-quality video ads can easily generate traffic of customers.

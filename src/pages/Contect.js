@@ -5,13 +5,10 @@ import * as Yup from "yup";
 import Header from "../component/Header";
 import websiteStore from "../store/WebsiteStore";
 import Loader from "../elements/loader";
-<<<<<<< HEAD
 import SEO from "../components/SEO";
-=======
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
->>>>>>> 6fa269bc5c1cd977400636528fd0064c1ffdf740
 
 const ContactPage = () => {
   const [isSuccess, setIsSuccess] = useState(false);

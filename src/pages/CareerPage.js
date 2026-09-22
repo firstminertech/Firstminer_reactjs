@@ -3,12 +3,9 @@ import Header from "../component/Header";
 import Footer from "../component/Footer";
 import Loader from "../elements/loader";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
 import SEO from "../components/SEO";
-=======
 import AOS from 'aos';
 import 'aos/dist/aos.css';
->>>>>>> 6fa269bc5c1cd977400636528fd0064c1ffdf740
 
 function CareerPage() {
 
@@ -17,7 +14,6 @@ function CareerPage() {
         setLoader(false);
     }, 500)
 
-<<<<<<< HEAD
     const structuredData = {
         "@context": "https://schema.org",
         "@type": "JobPosting",
@@ -52,7 +48,7 @@ function CareerPage() {
             "Collaborative work environment"
         ]
     };
-=======
+
     useEffect(() => {
         AOS.init({ duration: 900, once: true });
         // 3D tilt effect for cards
@@ -78,7 +74,6 @@ function CareerPage() {
             });
         }, 0);
     }, []);
->>>>>>> 6fa269bc5c1cd977400636528fd0064c1ffdf740
 
     return (
         <div>

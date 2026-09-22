@@ -7,7 +7,7 @@ import ClientPage from "../elements/ClientPage";
 import websiteStore from "../store/WebsiteStore";
 import Slider from "react-slick";
 import Testimonials from "../elements/Testimonials";
-import { useSpring, animated, useTransition } from "@react-spring/web";
+import { useSpring, animated } from "@react-spring/web";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
@@ -15,12 +15,9 @@ import { Form, Button, Alert, Row, Col, Modal } from "react-bootstrap";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Loader from "../elements/loader";
-<<<<<<< HEAD
 import SEO from "../components/SEO";
-=======
 import AOS from 'aos';
 import 'aos/dist/aos.css';
->>>>>>> 6fa269bc5c1cd977400636528fd0064c1ffdf740
 
 const HomePage = observer(() => {
   useEffect(() => {
@@ -51,36 +48,15 @@ const HomePage = observer(() => {
     setIsSuccess(true); // Indicate that the form was "successfully submitted" (even though it relies on the user's email client)
     setLoading(false);
   };
-  const [show, setShow] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   const handleShow = () => setShowModal(true);
   const handleClose = () => setShowModal(false);
 
   useEffect(() => {
-    setShow(true); // Trigger the animation when the component mounts
-  }, []);
-  useEffect(() => {
     websiteStore?.getTeams();
     AOS.init({ duration: 1000, once: true });
   }, []);
-
-  // Transition for the entire content
-  const transitions = useTransition(show, {
-    from: { opacity: 0, transform: "translateY(50px)" },
-    enter: { opacity: 1, transform: "translateY(0)" },
-    leave: { opacity: 0, transform: "translateY(50px)" },
-    config: { tension: 180, friction: 12 },
-  });
-
-  // Transition for the image with slight delay
-  const imageTransition = useTransition(show, {
-    from: { opacity: 0, transform: "translateY(50px)" },
-    enter: { opacity: 1, transform: "translateY(0)" },
-    leave: { opacity: 0, transform: "translateY(50px)" },
-    config: { tension: 180, friction: 12 },
-    delay: 300, // Slight delay for image
-  });
 
   // Animation for about section content
   const aboutContentSpring = useSpring({
@@ -398,46 +374,11 @@ const HomePage = observer(() => {
 
                 {/* Animated Content */}
                 <div className="col-lg-6 content">
-<<<<<<< HEAD
-                  {transitions((style, item) =>
-                    item ? (
-                      <>
-                        <h1 className="Firstminer-title">
-                          Firstminer Technology Solutions Pvt. Ltd .
-                        </h1>
-                        <ul>
-                        <li className="mt-5">
-                          Our team of specialists consistently delivers
-                          outstanding results combining creative ideas with our
-                          vast experience. We can help you build a sustainable,
-                          meaningful relationship with your clients by engaging
-                          them with your brand using social media.
-                        </li>
-                        </ul>
-                        <ul>
-                          <li>
-                            <i className="ion-android-checkmark-circle" /> Our
-                            team develops effective content strategies for forward
-                            thinking companies. We have a proven track record in
-                            increasing searnch engine rankings.
-                          </li>
-                          <li>
-                            <i className="ion-android-checkmark-circle" />
-                            Our digital marketing, Mobile Application Development,
-                            Website Development work speaks for itself. We deliver
-                            an outstanding service custom-tailored to each and
-                            every one of our clients.
-                          </li>
-                        </ul>
-                      </>
-                    ) : null
-                  )}
-=======
                   {/* Animated About Content */}
                   <animated.div style={aboutContentSpring}>
-                    <h2 className="Firstminer-title">
+                    <h1 className="Firstminer-title">
                       Firstminer Technology Solutions Pvt. Ltd .
-                    </h2>
+                    </h1>
                     <ul>
                       <li className="mt-5">
                         Our team of specialists consistently delivers
@@ -463,7 +404,6 @@ const HomePage = observer(() => {
                       </li>
                     </ul>
                   </animated.div>
->>>>>>> 6fa269bc5c1cd977400636528fd0064c1ffdf740
                 </div>
               </div>
             </div>
