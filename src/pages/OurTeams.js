@@ -23,9 +23,9 @@ const OurTeams = () => {
     // Sample team members (you can replace these with actual data or state)
     const teamMembers = [
         {
-            name: "Deepak soni",
-            role: " Senior Software Developer (Manager)",
-            description: "A skilled and innovative developer, delivering exceptional solutions, committed to quality, collaboration, and growth.",
+            name: "Novel kathor",
+            role: "ML Engineer",
+            description: "A skilled and innovative ml engineer, delivering exceptional solutions, committed to quality, collaboration, and growth.",
             image: "assets/img/boy1.png",
             
         },
@@ -44,9 +44,9 @@ const OurTeams = () => {
             
         },
         {
-            name: "Dharmesh Darshan",
-            role: "Backend Developer",
-            description: "A versatile full-stack developer, adept at designing, building, and maintaining scalable, user-centric web applications.",
+            name: "Pappu Sharma",
+            role: "Frontend React Developer",
+            description: "A versatile frontend react developer, adept at designing, building, and maintaining scalable, user-centric web applications.",
             image: "assets/img/boy1.png",
             
         },
@@ -60,16 +60,16 @@ const OurTeams = () => {
             
         },
         {
-            name: "Pallavi Rathore",
-            role: "Full Stack developer",
-            description: "A creative frontend developer, specializing in crafting responsive, intuitive, and visually appealing user interfaces.",
+            name: "Anupama Joshi",
+            role: "Graphics UI/UX Designer",
+            description: "A creative graphics ui/ux designer, specializing in crafting responsive, intuitive, and visually appealing user interfaces.",
             image: "assets/img/girl1.png",
             
         },
         {
-            name: "Hritwik Ujjaini",
-            role: "Senior Designer",
-            description: "A senior designer with expertise in leading projects, creating innovative designs, and mentoring junior designers.",
+            name: "Devesh Kaushik",
+            role: "React native App Developer",
+            description: "A skilled react native app developer, delivering exceptional solutions, committed to quality, collaboration, and growth.",
             image: "assets/img/boy1.png",
             
         },
@@ -101,8 +101,8 @@ const OurTeams = () => {
             "employee": [
                 {
                     "@type": "Person",
-                    "name": "Deepak Soni",
-                    "jobTitle": "Senior Software Developer (Manager)"
+                    "name": "Novel Kathor",
+                    "jobTitle": "ML Engineer"
                 },
                 {
                     "@type": "Person",
@@ -116,8 +116,8 @@ const OurTeams = () => {
                 },
                 {
                     "@type": "Person",
-                    "name": "Dharmesh Darshan",
-                    "jobTitle": "Software Developer"
+                    "name": "Pappu Sharma",
+                    "jobTitle": "Frontend React Developer"
                 },
                 {
                     "@type": "Person",
@@ -126,23 +126,23 @@ const OurTeams = () => {
                 },
                 {
                     "@type": "Person",
+                    "name": "Devesh Kaushik",
+                    "jobTitle": "React Native App Developer"
+                },
+                {
+                    "@type": "Person",
                     "name": "Sakshi Rathore",
                     "jobTitle": "App Developer"
                 },
                 {
                     "@type": "Person",
-                    "name": "Pallavi Rathore",
-                    "jobTitle": "Tester & Frontend Developer"
+                    "name": "Anupama Joshi",
+                    "jobTitle": "Graphics UI/UX Designer"
                 },
                 {
                     "@type": "Person",
-                    "name": "Sandeep Bhatt",
-                    "jobTitle": "Designer"
-                },
-                {
-                    "@type": "Person",
-                    "name": "Hritwik Ujjaini",
-                    "jobTitle": "Senior Designer"
+                    "name": "Riya Singh",
+                    "jobTitle": "Junior Developer"
                 }
             ]
         }
